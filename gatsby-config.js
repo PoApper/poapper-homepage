@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "gatsby-starter-sane",
-    description: "A Gatsby starter to keep your sanity",
-    author: "Lucas Yunkyu Lee",
+    title: "poapper-homepage",
+    description: "PoApper Club Homepage",
+    author: "PoApper",
   },
   plugins: [
     "gatsby-plugin-styled-components", // Uses styled-components for styling, ...

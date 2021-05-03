@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-sane",
+  "name": "poapper-homepage",
   "version": "0.1.0",
   "private": true,
-  "description": "A Gatsby starter to keep your sanity",
-  "author": "Lucas Yunkyu Lee <me@luc.li>",
+  "description": "PoApper Club Homepage",
+  "author": "PoApper",
   "keywords": [
     "gatsby"
   ],
@@ -62,12 +62,5 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rocketll/gatsby-starter-sane"
-  },
-  "bugs": {
-    "url": "https://github.com/rocketll/gatsby-starter-sane/issues"
   }
 }

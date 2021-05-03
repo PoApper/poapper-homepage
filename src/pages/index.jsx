@@ -17,15 +17,10 @@ import { ExternalLink } from "../components/links"
 const IndexPage = () => (
   <>
     {/* <head> management by react-helmet */}
-    <Helmet lang="en" title="gatsby-starter-sane" />
-    <Title>gatsby-starter-sane</Title>
+    <Helmet lang="en" title="poapper-homepage" />
+    <Title>poapper-homepage</Title>
     <p>
-      A <ExternalLink href="https://gatsbyjs.org">Gatsby</ExternalLink> starter
-      to keep your sanity. View the code{" "}
-      <ExternalLink href="https://github.com/rocketll/gatsby-starter-sane">
-        here
-      </ExternalLink>
-      .
+      PoApper club homepage. Created with <ExternalLink href="https://gatsbyjs.org">Gatsby</ExternalLink>.
     </p>
   </>
 )
