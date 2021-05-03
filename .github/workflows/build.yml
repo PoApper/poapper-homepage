@@ -1,0 +1,32 @@
+# Build CI: Disabled for now. Uncomment the below lines to enable.
+
+# name: Build CI
+
+# on:
+#   push:
+#   pull_request:
+#   workflow_dispatch:
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+
+#       - name: Setup Node
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '14'
+
+#       - name: Install
+#         run: npm ci
+
+#       - name: Build
+#         run: npm run build
+
+#       - name: Upload Artifact
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: gatsby-artifact
+#           path: public
+#           if-no-files-found: error

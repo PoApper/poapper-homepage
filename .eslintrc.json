@@ -1,0 +1,43 @@
+{
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["jsx-a11y"],
+  "extends": [
+    "react-app",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/react",
+    "plugin:import/errors",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "rules": {
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["\\.scss$"]
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always"
+      }
+    ]
+  }
+}
