@@ -3,6 +3,7 @@ module.exports = {
     title: "poapper-homepage",
     description: "PoApper Club Homepage",
     author: "PoApper",
+    siteUrl: "https://example.com"
   },
   plugins: [
     "gatsby-plugin-styled-components", // Uses styled-components for styling, ...
