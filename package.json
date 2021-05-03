@@ -7,7 +7,6 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
