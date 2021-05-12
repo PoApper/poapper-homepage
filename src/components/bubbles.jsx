@@ -14,7 +14,7 @@ const Bubble = ({ radius, fill, cx, cy, ...props }) => (
   <circle r={radius} fill={fill} cx={cx} cy={cy} {...props} />
 )
 
-const Bubbles = () => {
+const Bubbles = ({ width, height }) => {
   const w = 800,
     h = 800
   const el = useRef(null)
@@ -76,6 +76,8 @@ const Bubbles = () => {
       ref={el}
       viewBox={`0 0 ${w} ${h}`}
       preserveAspectRatio="xMidYMid meet"
+      scaledWidth={width}
+      scaledHeight={height}
     >
       {nodes.map(node => (
         <Bubble
@@ -91,8 +93,8 @@ const Bubbles = () => {
 }
 
 const ScaledSvg = styled.svg`
-  width: 32rem;
-  height: 32rem;
+  width: ${props => props.scaledWidth};
+  height: ${props => props.scaledHeight};
 `
 
 export default Bubbles
