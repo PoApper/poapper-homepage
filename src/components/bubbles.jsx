@@ -10,34 +10,59 @@ import {
 } from "d3"
 import styled from "styled-components"
 
-const Bubble = ({ radius, fill, cx, cy, ...props }) => (
-  <circle r={radius} fill={fill} cx={cx} cy={cy} {...props} />
+const BubbleClipPath = ({ r, id, className, ...props }) => (
+  <clipPath id={id} pointerEvents="none">
+    <circle r={r} className={className} {...props} />
+  </clipPath>
 )
 
 const Bubbles = ({ width, height }) => {
   const w = 800,
-    h = 800
+    h = 800,
+    hoverScale = 1.2
   const el = useRef(null)
 
-  const nodes = [...Array(25).keys()].map(() => ({
+  const nodes = [...Array(25).keys()].map(i => ({
+    index: i,
     radius: Math.floor(Math.random() * 30 + 40),
     x: Math.floor(Math.random() * w),
     y: Math.floor(Math.random() * h),
+    to: "https://github.com/poapper",
+    img: `https://source.unsplash.com/random/200x200/?${i}`,
+    imgSize: 200,
   }))
 
   useEffect(() => {
     const bubbles = selectAll(".bubble")
     bubbles.data(nodes).attr("r", d => d.radius)
+    const bubbleImages = selectAll(".bubble-images")
+    bubbleImages.data(nodes)
 
     bubbles.on("mouseover", function (d, i) {
-      i.radius += 30
-      select(this).attr("r", d => d.radius)
+      i.radius *= hoverScale
+      select(this)
+        .select("clipPath > circle")
+        .attr("r", d => d.radius)
+      select(this)
+        .select("image")
+        .attr("width", d => d.imgSize * hoverScale)
+        .attr("height", d => d.imgSize * hoverScale)
+        .attr("x", d => (-d.imgSize * hoverScale) / 2)
+        .attr("y", d => (-d.imgSize * hoverScale) / 2)
       simulation.nodes(nodes)
     })
 
     bubbles.on("mouseout", function (d, i) {
-      i.radius -= 30
-      select(this).attr("r", d => d.radius)
+      i.radius /= hoverScale
+      select(this)
+        .select("clipPath > circle")
+        .attr("r", d => d.radius)
+      select(this)
+        .select("image")
+        .attr("width", d => d.imgSize)
+        .attr("height", d => d.imgSize)
+        .attr("x", d => -d.imgSize / 2)
+        .attr("y", d => -d.imgSize / 2)
       simulation.nodes(nodes)
     })
 
@@ -64,7 +89,7 @@ const Bubbles = ({ width, height }) => {
       )
       .nodes(nodes)
       .on("tick", () => {
-        bubbles.attr("cx", d => d.x).attr("cy", d => d.y)
+        bubbles.attr("transform", d => `translate(${d.x}, ${d.y})`)
       })
       .alphaTarget(0.1)
   }, [nodes])
@@ -80,13 +105,21 @@ const Bubbles = ({ width, height }) => {
       scaledHeight={height}
     >
       {nodes.map(node => (
-        <Bubble
-          cx={node.x}
-          cy={node.y}
-          radius={node.radius}
-          fill="#999999"
-          className="bubble"
-        />
+        <a href={node.to} className="bubble">
+          <BubbleClipPath
+            r={node.radius}
+            id={`bubble-clip-path-${node.index}`}
+          />
+          <image
+            x={-node.imgSize / 2}
+            y={-node.imgSize / 2}
+            width={node.imgSize}
+            height={node.imgSize}
+            xlinkHref={node.img}
+            clipPath={`url(#bubble-clip-path-${node.index})`}
+            className="bubble-image"
+          />
+        </a>
       ))}
     </ScaledSvg>
   )
