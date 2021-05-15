@@ -35,8 +35,12 @@ const Bubbles = ({ width, height }) => {
   useEffect(() => {
     const bubbles = selectAll(".bubble")
     bubbles.data(nodes).attr("r", d => d.radius)
+
     const bubbleImages = selectAll(".bubble-images")
     bubbleImages.data(nodes)
+
+    const tooltip = select("#bubble-tooltip")
+    tooltip.data(nodes).style("position", "fixed")
 
     bubbles.on("mouseover", function (d, i) {
       i.radius *= hoverScale
@@ -49,6 +53,7 @@ const Bubbles = ({ width, height }) => {
         .attr("height", d => d.imgSize * hoverScale)
         .attr("x", d => (-d.imgSize * hoverScale) / 2)
         .attr("y", d => (-d.imgSize * hoverScale) / 2)
+      tooltip.html(`Bubble #${i.index}`).style("display", "block")
       simulation.nodes(nodes)
     })
 
@@ -63,7 +68,14 @@ const Bubbles = ({ width, height }) => {
         .attr("height", d => d.imgSize)
         .attr("x", d => -d.imgSize / 2)
         .attr("y", d => -d.imgSize / 2)
+      tooltip.style("display", "none")
       simulation.nodes(nodes)
+    })
+
+    bubbles.on("mousemove", function (d, i) {
+      tooltip
+        .style("left", `${d.pageX + 10}px`)
+        .style("top", `${d.pageY + 10}px`)
     })
 
     const simulation = forceSimulation()
@@ -95,39 +107,51 @@ const Bubbles = ({ width, height }) => {
   }, [nodes])
 
   return (
-    <ScaledSvg
-      width={w}
-      height={h}
-      ref={el}
-      viewBox={`0 0 ${w} ${h}`}
-      preserveAspectRatio="xMidYMid meet"
-      scaledWidth={width}
-      scaledHeight={height}
-    >
-      {nodes.map(node => (
-        <a href={node.to} className="bubble">
-          <BubbleClipPath
-            r={node.radius}
-            id={`bubble-clip-path-${node.index}`}
-          />
-          <image
-            x={-node.imgSize / 2}
-            y={-node.imgSize / 2}
-            width={node.imgSize}
-            height={node.imgSize}
-            xlinkHref={node.img}
-            clipPath={`url(#bubble-clip-path-${node.index})`}
-            className="bubble-image"
-          />
-        </a>
-      ))}
-    </ScaledSvg>
+    <>
+      <ScaledSvg
+        width={w}
+        height={h}
+        ref={el}
+        viewBox={`0 0 ${w} ${h}`}
+        preserveAspectRatio="xMidYMid meet"
+        scaledWidth={width}
+        scaledHeight={height}
+      >
+        {nodes.map(node => (
+          <a href={node.to} className="bubble">
+            <BubbleClipPath
+              r={node.radius}
+              id={`bubble-clip-path-${node.index}`}
+            />
+            <image
+              x={-node.imgSize / 2}
+              y={-node.imgSize / 2}
+              width={node.imgSize}
+              height={node.imgSize}
+              xlinkHref={node.img}
+              clipPath={`url(#bubble-clip-path-${node.index})`}
+              className="bubble-image"
+            />
+          </a>
+        ))}
+      </ScaledSvg>
+      <Tooltip id="bubble-tooltip"></Tooltip>
+    </>
   )
 }
 
 const ScaledSvg = styled.svg`
   width: ${props => props.scaledWidth};
   height: ${props => props.scaledHeight};
+`
+
+const Tooltip = styled.div`
+  display: none;
+  padding: 0.8rem;
+  font-size: 0.8em;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 3px 7px #00000055;
 `
 
 export default Bubbles
