@@ -17,11 +17,14 @@ const BubbleClipPath = ({ r, id, className, ...props }) => (
   </clipPath>
 )
 
-const Bubbles = ({ width, height }) => {
-  const w = 800,
-    h = 800,
-    hoverScale = 1.15
-
+const Bubbles = ({
+  width,
+  height,
+  svgWidth = 800,
+  svgHeight = 800,
+  config = { hoverScale: 1.15, imgSize: 200 },
+  ...props
+}) => {
   const members = useStaticQuery(graphql`
     query GH {
       github {
@@ -46,11 +49,11 @@ const Bubbles = ({ width, height }) => {
   const nodes = members.map(({ node: member }, i) => ({
     index: i,
     radius: Math.floor(Math.random() * 30 + 40),
-    x: Math.floor(Math.random() * w),
-    y: Math.floor(Math.random() * h),
+    x: Math.floor(Math.random() * svgWidth),
+    y: Math.floor(Math.random() * svgHeight),
     to: member.url,
     img: member.avatarUrl,
-    imgSize: 200,
+    imgSize: config.imgSize,
     name: member.name ?? member.login,
   }))
 
@@ -62,7 +65,7 @@ const Bubbles = ({ width, height }) => {
     tooltip.data(nodes).style("position", "fixed")
 
     bubbles.on("mouseover", function (d, t) {
-      t.radius *= hoverScale
+      t.radius *= config.hoverScale
       select(this)
         .select("clipPath > circle")
         .attr("r", d => d.radius)
@@ -77,7 +80,7 @@ const Bubbles = ({ width, height }) => {
     })
 
     bubbles.on("mouseout", function (d, t) {
-      t.radius /= hoverScale
+      t.radius /= config.hoverScale
       select(this)
         .select("clipPath > circle")
         .attr("r", d => d.radius)
@@ -107,13 +110,13 @@ const Bubbles = ({ width, height }) => {
         "x",
         forceX()
           .strength(0.05)
-          .x(w / 2)
+          .x(svgWidth / 2)
       )
       .force(
         "y",
         forceY()
           .strength(0.05)
-          .y(h / 2)
+          .y(svgHeight / 2)
       )
       .force(
         "collision",
@@ -124,14 +127,14 @@ const Bubbles = ({ width, height }) => {
         bubbles.attr("transform", d => `translate(${d.x}, ${d.y})`)
       })
       .alphaTarget(0.1)
-  }, [nodes])
+  }, [])
 
   return (
-    <>
+    <div {...props}>
       <ScaledSvg
-        width={w}
-        height={h}
-        viewBox={`0 0 ${w} ${h}`}
+        width={svgWidth}
+        height={svgHeight}
+        viewBox={`0 0 ${svgWidth} ${svgHeight}`}
         preserveAspectRatio="xMidYMid meet"
         scaledWidth={width}
         scaledHeight={height}
@@ -156,7 +159,7 @@ const Bubbles = ({ width, height }) => {
         ))}
       </ScaledSvg>
       <Tooltip id="bubble-tooltip"></Tooltip>
-    </>
+    </div>
   )
 }
 
