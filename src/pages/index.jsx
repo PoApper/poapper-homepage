@@ -42,13 +42,13 @@ const Wrapper = styled.div`
   margin: auto;
   padding: 0 4rem;
 
-  @media only screen and (max-width: 70rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
     flex-direction: column-reverse;
     justify-content: space-between;
     padding: 1rem;
   }
 
-  @media only screen and (max-width: 40rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     padding: 0;
   }
 `
@@ -58,7 +58,7 @@ const Title = styled.h1`
   margin: 0;
   font-size: 4em;
 
-  @media only screen and (max-width: 70rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
     font-size: 3em;
   }
 `
@@ -70,13 +70,13 @@ const Information = styled.div`
   justify-content: center;
   margin: 0 7rem 0 0;
 
-  @media only screen and (max-width: 70rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
     flex-basis: auto;
     max-width: 50rem;
     margin: 0;
   }
 
-  @media only screen and (max-width: 40rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     width: 100%;
     margin: 0;
   }
@@ -89,12 +89,12 @@ const StyledBubbles = styled(Bubbles)`
   flex-direction: column;
   justify-content: center;
 
-  @media only screen and (max-width: 70rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
     max-width: 35rem;
     margin: 0 0 0 -2rem;
   }
 
-  @media only screen and (max-width: 40rem) {
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     box-sizing: border-box;
     width: 100vw;
     margin: -1rem;

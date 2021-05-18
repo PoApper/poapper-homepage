@@ -14,6 +14,10 @@ const theme = {
     sub: "#a0a0a0ff",
     link: "#6196f2ff",
   },
+  breakpoint: {
+    m: "70rem",
+    s: "40rem",
+  },
 }
 
 export default theme
