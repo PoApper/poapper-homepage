@@ -11,20 +11,23 @@ import {
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
+// A clip path is used to display the image as a circle
 const BubbleClipPath = ({ r, id, className, ...props }) => (
   <clipPath id={id}>
     <circle r={r} className={className} {...props} />
   </clipPath>
 )
 
+// Main component
 const Bubbles = ({
-  width,
+  width, // Size of component
   height,
-  svgWidth = 800,
+  svgWidth = 800, // Size of SVG render
   svgHeight = 800,
   config = { hoverScale: 1.15, imgSize: 200 },
   ...props
 }) => {
+  // Access GitHub via GraphQL API
   const members = useStaticQuery(graphql`
     query GH {
       github {
@@ -46,6 +49,7 @@ const Bubbles = ({
     }
   `).github.organization.membersWithRole.edges
 
+  // Nodes for use with D3. Each element represents a bubble.
   const nodes = members.map(({ node: member }, i) => ({
     index: i,
     radius: Math.floor(Math.random() * 30 + 40),
@@ -57,13 +61,16 @@ const Bubbles = ({
     name: member.name ?? member.login,
   }))
 
+  // A useEffect() hook is used to call D3 in the browser.
+  // The HTML DOM is used instead of React's VDOM to reduce overhead.
   useEffect(() => {
-    const bubbles = selectAll(".bubble")
+    const bubbles = selectAll(".bubble") // All bubbles
     bubbles.data(nodes)
 
-    const tooltip = select("#bubble-tooltip")
+    const tooltip = select("#bubble-tooltip") // Tooltip that appears on hover
     tooltip.data(nodes).style("position", "fixed")
 
+    // Increase bubble size and display tooltip on mouseover
     bubbles.on("mouseover", function (d, t) {
       t.radius *= config.hoverScale
       select(this)
@@ -79,6 +86,7 @@ const Bubbles = ({
       simulation.nodes(nodes)
     })
 
+    // Decrease bubble size and hide tooltip on mouseout
     bubbles.on("mouseout", function (d, t) {
       t.radius /= config.hoverScale
       select(this)
@@ -94,6 +102,7 @@ const Bubbles = ({
       simulation.nodes(nodes)
     })
 
+    // Move tooltip to mouse position. CSS transform is used for performance.
     bubbles.on("mousemove", function (d, t) {
       tooltip.style(
         "transform",
@@ -101,6 +110,7 @@ const Bubbles = ({
       )
     })
 
+    // Physics simulation
     const simulation = forceSimulation()
       .force(
         "charge",
@@ -120,13 +130,13 @@ const Bubbles = ({
       )
       .force(
         "collision",
-        forceCollide().radius(d => d.radius + 3)
+        forceCollide().radius(d => d.radius + 3) // Radius is set to be larger for aestheics
       )
       .nodes(nodes)
       .on("tick", () => {
         bubbles.attr("transform", d => `translate(${d.x}, ${d.y})`)
       })
-      .alphaTarget(0.1)
+      .alphaTarget(0.1) // Do not stop the simulation
   }, [])
 
   return (
@@ -163,6 +173,7 @@ const Bubbles = ({
   )
 }
 
+// Scales the rendered SVG down
 const ScaledSvg = styled.svg`
   width: ${props => props.scaledWidth};
   height: ${props => props.scaledHeight};
