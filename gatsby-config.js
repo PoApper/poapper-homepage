@@ -1,9 +1,11 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: "poapper-homepage",
     description: "PoApper Club Homepage",
     author: "PoApper",
-    siteUrl: "https://example.com"
+    siteUrl: "https://example.com",
   },
   plugins: [
     "gatsby-plugin-styled-components", // Uses styled-components for styling, ...
@@ -35,6 +37,17 @@ module.exports = {
       },
       __key: "pages",
     },
-    "gatsby-plugin-preact", // Uses Preact for better performance
+    "gatsby-plugin-preact", // Uses Preact for better performance,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    },
   ],
 }
