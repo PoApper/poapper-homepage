@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 import {
   forceCollide,
   forceManyBody,
@@ -9,9 +9,10 @@ import {
   selectAll,
 } from "d3"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
 
 const BubbleClipPath = ({ r, id, className, ...props }) => (
-  <clipPath id={id} pointerEvents="none">
+  <clipPath id={id}>
     <circle r={r} className={className} {...props} />
   </clipPath>
 )
@@ -19,63 +20,82 @@ const BubbleClipPath = ({ r, id, className, ...props }) => (
 const Bubbles = ({ width, height }) => {
   const w = 800,
     h = 800,
-    hoverScale = 1.2
-  const el = useRef(null)
+    hoverScale = 1.15
 
-  const nodes = [...Array(25).keys()].map(i => ({
+  const members = useStaticQuery(graphql`
+    query GH {
+      github {
+        organization(login: "poapper") {
+          id
+          name
+          membersWithRole(first: 30) {
+            edges {
+              node {
+                name
+                avatarUrl(size: 200)
+                url
+                login
+              }
+            }
+          }
+        }
+      }
+    }
+  `).github.organization.membersWithRole.edges
+
+  const nodes = members.map(({ node: member }, i) => ({
     index: i,
     radius: Math.floor(Math.random() * 30 + 40),
     x: Math.floor(Math.random() * w),
     y: Math.floor(Math.random() * h),
-    to: "https://github.com/poapper",
-    img: `https://source.unsplash.com/random/200x200/?${i}`,
+    to: member.url,
+    img: member.avatarUrl,
     imgSize: 200,
+    name: member.name ?? member.login,
   }))
 
   useEffect(() => {
     const bubbles = selectAll(".bubble")
-    bubbles.data(nodes).attr("r", d => d.radius)
-
-    const bubbleImages = selectAll(".bubble-images")
-    bubbleImages.data(nodes)
+    bubbles.data(nodes)
 
     const tooltip = select("#bubble-tooltip")
     tooltip.data(nodes).style("position", "fixed")
 
-    bubbles.on("mouseover", function (d, i) {
-      i.radius *= hoverScale
+    bubbles.on("mouseover", function (d, t) {
+      t.radius *= hoverScale
       select(this)
         .select("clipPath > circle")
         .attr("r", d => d.radius)
       select(this)
         .select("image")
-        .attr("width", d => d.imgSize * hoverScale)
-        .attr("height", d => d.imgSize * hoverScale)
-        .attr("x", d => (-d.imgSize * hoverScale) / 2)
-        .attr("y", d => (-d.imgSize * hoverScale) / 2)
-      tooltip.html(`Bubble #${i.index}`).style("display", "block")
+        .style("width", d => 2 * d.radius)
+        .style("height", d => 2 * d.radius)
+        .attr("x", d => -d.radius)
+        .attr("y", d => -d.radius)
+      tooltip.html(t.name).style("display", "block")
       simulation.nodes(nodes)
     })
 
-    bubbles.on("mouseout", function (d, i) {
-      i.radius /= hoverScale
+    bubbles.on("mouseout", function (d, t) {
+      t.radius /= hoverScale
       select(this)
         .select("clipPath > circle")
         .attr("r", d => d.radius)
       select(this)
         .select("image")
-        .attr("width", d => d.imgSize)
-        .attr("height", d => d.imgSize)
-        .attr("x", d => -d.imgSize / 2)
-        .attr("y", d => -d.imgSize / 2)
+        .style("width", d => 2 * d.radius)
+        .style("height", d => 2 * d.radius)
+        .attr("x", d => -d.radius)
+        .attr("y", d => -d.radius)
       tooltip.style("display", "none")
       simulation.nodes(nodes)
     })
 
-    bubbles.on("mousemove", function (d, i) {
-      tooltip
-        .style("left", `${d.pageX + 10}px`)
-        .style("top", `${d.pageY + 10}px`)
+    bubbles.on("mousemove", function (d, t) {
+      tooltip.style(
+        "transform",
+        `translate(${d.pageX + 10}px, ${d.pageY + 10}px)`
+      )
     })
 
     const simulation = forceSimulation()
@@ -97,7 +117,7 @@ const Bubbles = ({ width, height }) => {
       )
       .force(
         "collision",
-        forceCollide().radius(d => d.radius + 2)
+        forceCollide().radius(d => d.radius + 3)
       )
       .nodes(nodes)
       .on("tick", () => {
@@ -111,7 +131,6 @@ const Bubbles = ({ width, height }) => {
       <ScaledSvg
         width={w}
         height={h}
-        ref={el}
         viewBox={`0 0 ${w} ${h}`}
         preserveAspectRatio="xMidYMid meet"
         scaledWidth={width}
@@ -124,13 +143,14 @@ const Bubbles = ({ width, height }) => {
               id={`bubble-clip-path-${node.index}`}
             />
             <image
-              x={-node.imgSize / 2}
-              y={-node.imgSize / 2}
+              x={-node.radius}
+              y={-node.radius}
               width={node.imgSize}
               height={node.imgSize}
               xlinkHref={node.img}
               clipPath={`url(#bubble-clip-path-${node.index})`}
               className="bubble-image"
+              style={{ width: node.radius * 2, height: node.radius * 2 }}
             />
           </a>
         ))}
@@ -146,12 +166,15 @@ const ScaledSvg = styled.svg`
 `
 
 const Tooltip = styled.div`
+  top: 0;
+  left: 0;
   display: none;
   padding: 0.8rem;
   font-size: 0.8em;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 3px 7px #00000055;
+  will-change: transform;
 `
 
 export default Bubbles
