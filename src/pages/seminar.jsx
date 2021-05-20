@@ -12,8 +12,9 @@ import REACT_logo from "../images/seminar/react.png"
 import EXPRESS_logo from "../images/seminar/express.png"
 import NODEJS_logo from "../images/seminar/nodejs.png"
 import MYSQL_logo from "../images/seminar/mysql.png"
-import VerticalTimeline from "../components/vertical_timeline"
+import SeminarTimeline from "../components/seminar-timeline"
 
+// TODO: export to seminar-list.js file
 const regular_seminars = [
   {
     name: "FrontEnd Seminar",
@@ -106,41 +107,8 @@ const SeminarPage = () => (
     <div>태그 넣을 자리</div>
 
     <div style={{ margin: "20px 0" }}>
-      <Item.Group>
-        <Item>
-          <Item.Content>
-            <Item.Header as="a">How to use Marp</Item.Header>
-            <Item.Meta>세미나 날짜 | 발표자</Item.Meta>
-            <Item.Extra>정모세미나에 대한 간단한 소개</Item.Extra>
-          </Item.Content>
-        </Item>
-
-        <Item>
-          <Item.Content>
-            <Item.Header as="a">Welcome 세미나 - 3</Item.Header>
-            <Item.Meta>Description</Item.Meta>
-            <Item.Extra>Additional Details</Item.Extra>
-          </Item.Content>
-        </Item>
-
-        <Item>
-          <Item.Content>
-            <Item.Header as="a">Welcome 세미나 - 2</Item.Header>
-            <Item.Meta>Description</Item.Meta>
-            <Item.Extra>Additional Details</Item.Extra>
-          </Item.Content>
-        </Item>
-
-        <Item>
-          <Item.Content>
-            <Item.Header as="a">Welcome 세미나 - 1</Item.Header>
-            <Item.Meta>Description</Item.Meta>
-            <Item.Extra>Additional Details</Item.Extra>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+      <SeminarTimeline />
     </div>
-    {/*<VerticalTimeline/>*/}
   </>
 )
 
