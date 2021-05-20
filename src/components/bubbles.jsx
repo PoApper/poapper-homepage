@@ -27,27 +27,20 @@ const Bubbles = ({
   config = { hoverScale: 1.15, imgSize: 200 },
   ...props
 }) => {
-  // Access GitHub via GraphQL API
+  // Get GitHub data via GraphQL
   const members = useStaticQuery(graphql`
-    query GH {
-      github {
-        organization(login: "poapper") {
-          id
-          name
-          membersWithRole(first: 30) {
-            edges {
-              node {
-                name
-                avatarUrl(size: 200)
-                url
-                login
-              }
-            }
+    query Members {
+      allGithubMember {
+        edges {
+          node {
+            name
+            url
+            avatarUrl
           }
         }
       }
     }
-  `).github.organization.membersWithRole.edges
+  `).allGithubMember.edges
 
   // Nodes for use with D3. Each element represents a bubble.
   const nodes = members.map(({ node: member }, i) => ({
