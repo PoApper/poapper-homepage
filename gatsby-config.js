@@ -1,5 +1,3 @@
-require("dotenv").config()
-
 module.exports = {
   siteMetadata: {
     title: "poapper-homepage",
@@ -38,16 +36,5 @@ module.exports = {
       __key: "pages",
     },
     "gatsby-plugin-preact", // Uses Preact for better performance,
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-      },
-    },
   ],
 }
