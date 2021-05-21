@@ -19,12 +19,7 @@ const Layout = ({ children }) => {
 }
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 60rem;
   height: 100vh;
-  margin: auto;
   padding: 0 1rem;
 `
 
