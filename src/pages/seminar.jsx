@@ -9,8 +9,6 @@ import { Divider } from "semantic-ui-react"
 import SeminarTimeline from "../components/seminar-timeline"
 import SeminarCardGrid from "../components/seminar-cardGrid"
 
-// TODO: export to seminar-list.js file
-
 // Uses React functional components
 const SeminarPage = () => (
   <>
