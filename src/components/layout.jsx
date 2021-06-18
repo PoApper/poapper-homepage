@@ -5,15 +5,14 @@ import "/src/styles/fonts.scss"
 import theme from "../styles/theme"
 
 import GlobalStyle from "./global-styles"
+import Navbar from "./navbar"
 
 const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      {/* Theme support */}
-      <Wrapper>
-        <GlobalStyle /> {/* Global style injection */}
-        {children}
-      </Wrapper>
+      <GlobalStyle />
+      <Navbar />
+      <Wrapper>{children}</Wrapper>
     </ThemeProvider>
   )
 }
