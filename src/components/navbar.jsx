@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import styled, { css } from "styled-components"
+import { HiMenuAlt4 } from "react-icons/hi"
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -17,7 +18,7 @@ const Navbar = () => {
           </Links>
         </Items>
         <MobileButton onClick={() => setMobileOpen(!mobileOpen)}>
-          x
+          <HiMenuAlt4 size="1.1em" />
         </MobileButton>
       </Container>
     </>
@@ -27,6 +28,7 @@ const Navbar = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   justify-content: space-between;
   max-width: ${({ theme }) => theme.contentWidth};
   margin: auto;
@@ -52,6 +54,8 @@ const Items = styled.div`
 const Logo = styled(Link)`
   color: ${({ theme }) => theme.foreground.default};
   font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1;
 
   &:hover {
     color: inherit;
@@ -73,8 +77,8 @@ const Links = styled.div`
 `
 
 const MobileButton = styled.button`
-  height: 1rem;
   margin: 0;
+  padding: 0;
   background: none;
   border: none;
 
