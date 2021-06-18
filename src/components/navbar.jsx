@@ -47,6 +47,7 @@ const Items = styled.div`
       css`
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
       `}
   }
 `
@@ -72,6 +73,7 @@ const Links = styled.div`
       css`
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
       `}
   }
 `
