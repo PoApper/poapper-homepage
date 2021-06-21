@@ -7,8 +7,8 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <>
-      <Container>
+    <Container>
+      <Nav>
         <Items mobileOpen={mobileOpen}>
           <Logo to="/">PoApper</Logo>
           <Links mobileOpen={mobileOpen}>
@@ -20,19 +20,26 @@ const Navbar = () => {
         <MobileButton onClick={() => setMobileOpen(!mobileOpen)}>
           <HiMenuAlt4 size="1.1em" />
         </MobileButton>
-      </Container>
-    </>
+      </Nav>
+    </Container>
   )
 }
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eeeeee;
+`
+
+const Nav = styled.nav`
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
   max-width: ${({ theme }) => theme.contentWidth};
   margin: auto;
-  padding: 1rem;
 `
 
 const Items = styled.div`
