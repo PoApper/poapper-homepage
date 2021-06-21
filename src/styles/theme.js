@@ -18,6 +18,7 @@ const theme = {
     m: "70rem",
     s: "40rem",
   },
+  contentWidth: "70rem",
 }
 
 export default theme
