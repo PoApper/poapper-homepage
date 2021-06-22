@@ -7,6 +7,7 @@ import theme from "../styles/theme"
 
 import GlobalStyle from "./global-styles"
 import Navbar from "./navbar"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children }) => {
         <GlobalStyle />
         <Navbar />
         <Wrapper>{children}</Wrapper>
+        <Footer />
       </IconContext.Provider>
     </ThemeProvider>
   )
