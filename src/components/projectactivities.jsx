@@ -21,7 +21,7 @@ class Projectactivities extends Component {
               주전 포인트가드로 나온 카메론 페인이 29득점 9어시스트 2스틸
               2블록슛으로 맹활약했다. 득점과 어시스트 모두 양 팀 선수 중 가
             </Content>
-            <Link to="./index.jsx">
+            <Link to="/">
               <Button>Open</Button>
             </Link>
           </ContentandButton>
