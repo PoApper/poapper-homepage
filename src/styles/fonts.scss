@@ -44,3 +44,21 @@
     url("../fonts/Inter-700-normal.woff") format("woff");
   font-display: swap;
 }
+
+@font-face {
+  font-weight: 400;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  src: url("../fonts/SpoqaHanSansNeo-400-normal.woff2") format("woff2"),
+    url("../fonts/SpoqaHanSansNeo-400-normal.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Spoqa Han Sans Neo";
+  font-style: normal;
+  src: url("../fonts/SpoqaHanSansNeo-700-normal.woff2") format("woff2"),
+    url("../fonts/SpoqaHanSansNeo-700-normal.woff2") format("woff");
+  font-display: swap;
+}

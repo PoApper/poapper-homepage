@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     color: ${({ theme }) => theme.foreground.default};
-    font-family: Inter, sans-serif;
+    font-family: Inter, "Spoqa Han Sans Neo", sans-serif;
 
     *::selection {
       background: ${({ theme }) => theme.background.selection};
