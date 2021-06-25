@@ -23,7 +23,6 @@ const Layout = ({ children }) => {
 }
 
 const Wrapper = styled.div`
-  height: 100vh;
   padding: 0 1rem;
 `
 
