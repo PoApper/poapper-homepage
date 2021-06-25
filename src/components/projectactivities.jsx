@@ -7,13 +7,15 @@ class Projectactivities extends Component {
     return (
       <div>
         <Project>
-          <h3>Project</h3>
+          <Head>Project</Head>
           <Box id="project1">
-            <Logoimage></Logoimage>
-            <Nameandcategory>
-              <Name>Project one</Name>
-              <Category>web app</Category>
-            </Nameandcategory>
+            <ImageandName>
+              <Logoimage></Logoimage>
+              <Nameandcategory>
+                <Name>Project one</Name>
+                <Category>web app</Category>
+              </Nameandcategory>
+            </ImageandName>
             <ContentandButton>
               <Content>
                 피닉스 선즈는 23일(이하 한국시간) 미국 피닉스 선즈 아레나에서
@@ -32,11 +34,13 @@ class Projectactivities extends Component {
             </ContentandButton>
           </Box>
           <Box id="project2">
-            <Logoimage></Logoimage>
-            <Nameandcategory>
-              <Name>Project two</Name>
-              <Category>web</Category>
-            </Nameandcategory>
+            <ImageandName>
+              <Logoimage></Logoimage>
+              <Nameandcategory>
+                <Name>Project one</Name>
+                <Category>web app</Category>
+              </Nameandcategory>
+            </ImageandName>
             <ContentandButton>
               <Content>
                 피닉스 선즈는 23일(이하 한국시간) 미국 피닉스 선즈 아레나에서
@@ -57,13 +61,15 @@ class Projectactivities extends Component {
         </Project>
 
         <Activity>
-          <h3>Activity</h3>
+          <Head>Activity</Head>
           <Box id="activity1">
-            <Logoimage></Logoimage>
-            <Nameandcategory>
-              <Name>Activity one</Name>
-              <Category>web app</Category>
-            </Nameandcategory>
+            <ImageandName>
+              <Logoimage></Logoimage>
+              <Nameandcategory>
+                <Name>Project one</Name>
+                <Category>web app</Category>
+              </Nameandcategory>
+            </ImageandName>
             <ContentandButton>
               <Content>
                 피닉스 선즈는 23일(이하 한국시간) 미국 피닉스 선즈 아레나에서
@@ -85,11 +91,13 @@ class Projectactivities extends Component {
             </ContentandButton>
           </Box>
           <Box id="activity2">
-            <Logoimage></Logoimage>
-            <Nameandcategory>
-              <Name>Activity two</Name>
-              <Category>web</Category>
-            </Nameandcategory>
+            <ImageandName>
+              <Logoimage></Logoimage>
+              <Nameandcategory>
+                <Name>Project one</Name>
+                <Category>web app</Category>
+              </Nameandcategory>
+            </ImageandName>
             <ContentandButton>
               <Content>
                 피닉스 선즈는 23일(이하 한국시간) 미국 피닉스 선즈 아레나에서
@@ -111,11 +119,13 @@ class Projectactivities extends Component {
             </ContentandButton>
           </Box>
           <Box id="activity3">
-            <Logoimage></Logoimage>
-            <Nameandcategory>
-              <Name>Activity three</Name>
-              <Category>web</Category>
-            </Nameandcategory>
+            <ImageandName>
+              <Logoimage></Logoimage>
+              <Nameandcategory>
+                <Name>Project one</Name>
+                <Category>web app</Category>
+              </Nameandcategory>
+            </ImageandName>
             <ContentandButton>
               <Content>
                 피닉스 선즈는 23일(이하 한국시간) 미국 피닉스 선즈 아레나에서
@@ -136,20 +146,34 @@ class Projectactivities extends Component {
 }
 export default Projectactivities
 
+const Head = styled.div`
+  font-weight: 600;
+  font-size: 22px;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    text-align: center;
+  }
+`
 const Project = styled.div`
   display: grid;
+  max-width: 960px;
   margin: 0 auto;
 `
 const Activity = styled.div`
   display: grid;
+  max-width: 960px;
   margin: 0 auto;
 `
 const Box = styled.div`
   display: grid;
-  grid-template-columns: 70px 130px auto;
-  height: 150px;
+  grid-template-columns: 200px auto;
   margin-top: 20px;
   margin-left: 10px;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    grid-template-rows: 70px;
+    grid-template-columns: auto;
+  }
 `
 const Logoimage = styled.div`
   display: flex;
@@ -157,6 +181,10 @@ const Logoimage = styled.div`
   height: 50px;
   background: blue;
   border-radius: 30%;
+`
+const ImageandName = styled.div`
+  display: grid;
+  grid-template-columns: 70px 130px;
 `
 const Nameandcategory = styled.div`
   display: grid;
@@ -182,6 +210,10 @@ const ContentandButton = styled.div`
 const Content = styled.p`
   display: flex;
   max-width: 700px;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    font-size: 12px;
+  }
 `
 const Buttons = styled.div`
   display: grid;
