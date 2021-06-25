@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React, { Component } from "react"
 import styled, { css } from "styled-components"
+
 class Projectactivities extends Component {
   render() {
     return (
@@ -137,18 +138,16 @@ export default Projectactivities
 
 const Project = styled.div`
   display: grid;
-  width: 960px;
   margin: 0 auto;
 `
 const Activity = styled.div`
   display: grid;
-  width: 960px;
   margin: 0 auto;
 `
 const Box = styled.div`
   display: grid;
-  grid-template-columns: 70px auto auto;
-  height: 140px;
+  grid-template-columns: 70px 130px auto;
+  height: 150px;
   margin-top: 20px;
   margin-left: 10px;
 `
@@ -178,12 +177,11 @@ const Category = styled.div`
 const ContentandButton = styled.div`
   display: grid;
   grid-row-gap: 0px;
-  grid-template-rows: 90px;
-  height: 150px;
+  grid-template-rows: auto auto;
 `
-const Content = styled.div`
+const Content = styled.p`
   display: flex;
-  width: 700px;
+  max-width: 700px;
 `
 const Buttons = styled.div`
   display: grid;
