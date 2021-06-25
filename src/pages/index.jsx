@@ -12,23 +12,28 @@ import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
 import Bubbles from "../components/bubbles"
+import Overview from "../components/overview"
 
 // Uses React functional components
 const IndexPage = () => (
-  <Wrapper>
-    {/* <head> management by react-helmet */}
-    <Helmet lang="en" title="poapper-homepage" />
-    <Information>
-      <Title>Hello.</Title>
-      <p>
-        Look, a cool bubble component. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Deserunt reiciendis eaque numquam cupiditate, incidunt
-        labore delectus aperiam nam repellat consectetur perferendis saepe
-        ratione debitis atque voluptatibus totam aliquam necessitatibus. Et.
-      </p>
-    </Information>
-    <StyledBubbles width="100%" height="auto" />
-  </Wrapper>
+  <>
+    <Wrapper>
+      {/* <head> management by react-helmet */}
+      <Helmet lang="en" title="poapper-homepage" />
+      <Information>
+        <Title>Hello.</Title>
+        <p>
+          Look, a cool bubble component. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Deserunt reiciendis eaque numquam cupiditate,
+          incidunt labore delectus aperiam nam repellat consectetur perferendis
+          saepe ratione debitis atque voluptatibus totam aliquam necessitatibus.
+          Et.
+        </p>
+      </Information>
+      <StyledBubbles width="100%" height="auto" />
+    </Wrapper>
+    <Overview />
+  </>
 )
 
 const Wrapper = styled.div`
