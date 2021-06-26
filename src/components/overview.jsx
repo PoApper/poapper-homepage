@@ -14,9 +14,7 @@ const Overview = () => (
       </OverviewText>
       <NumberStackGrid data={numberStackData} />
     </OverviewWrapper>
-    <GitView>
-      <pre>{gitData}</pre>
-    </GitView>
+    <GitView>{gitData}</GitView>
   </Container>
 )
 
@@ -81,7 +79,7 @@ const Container = styled.div`
 `
 
 const OverviewWrapper = styled.div`
-  width: 40%;
+  width: 50%;
   margin: 2rem 0;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
@@ -102,9 +100,10 @@ const OverviewTextSub = styled.span`
   color: ${({ theme }) => theme.foreground.sub};
 `
 
-const GitView = styled.div`
+const GitView = styled.pre`
+  flex: 1 0;
   margin: 0 0 0 1rem;
-  padding: 2rem;
+  padding: 2rem 1rem 2rem 2rem;
   color: #dddddd;
   font-size: 0.8em;
   background: #000000;
@@ -121,18 +120,18 @@ commit 1a05a223540d3b5cea6f13e5cd3ae7420754e832
 Author: Lucas Yunkyu Lee <me@luc.li>
 Date:   Sun Jun 20 03:57:39 2021 +0900
 
-    fix: update build results
+        fix: update build results
 
 commit 82f789b25fce77dcb7611f8de1600ac0a989349c
 Author: Lucas Yunkyu Lee <me@luc.li>
 Date:   Sun Jun 20 03:55:39 2021 +0900
 
-    feat: add header and form design
+        feat: add header and form design
 
 commit 414c25ffd4a6762a968280b5fd752789b59c2c6b
 Author: Lucas Yunkyu Lee <me@luc.li>
 Date:   Sun Jun 20 03:18:56 2021 +0900
 
-    feat: implement basic form`
+        feat: implement basic form`
 
 export default Overview
