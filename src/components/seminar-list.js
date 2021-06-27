@@ -21,11 +21,14 @@ export const regularSeminarList = [
   {
     name: "BackEnd Seminar",
     meta: "PoApper/backEnd-seminar",
+    github_link: "https://github.com/PoApper/backend-seminar",
     images: [NODEJS_logo, EXPRESS_logo, MYSQL_logo],
   },
   {
     name: "Mobile Seminar",
     meta: "PoApper/frontEnd-seminar",
+    github_link: "https://github.com/PoApper/flutter_seminar",
+
     images: [DART_logo, FLUTTER_logo],
   },
   {
@@ -36,6 +39,7 @@ export const regularSeminarList = [
   {
     name: "NestJS Seminar",
     meta: "PoApper/frontEnd-seminar",
+    github_link: "https://github.com/PoApper/nestjs-seminar",
     images: [NESTJS_logo, TYPEORM_logo, JEST_logo],
   },
 ]

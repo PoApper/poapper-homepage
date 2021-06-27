@@ -1,12 +1,20 @@
 import React from "react"
 import styled from "styled-components"
+import { FaGithub } from "react-icons/fa"
 
 import { regularSeminarList } from "./seminar-list"
 
 const RegularSeminarCard = props => (
   <SeminarCard>
-    <Title>{props.seminar.name}</Title>
-    <SubTitle>{props.seminar.meta}</SubTitle>
+    <Title>
+      {props.seminar.name}
+      {props.seminar.github_link ? (
+        <IconLink href={props.seminar.github_link}>
+          <FaGithub size="1.3rem" />
+        </IconLink>
+      ) : null}
+    </Title>
+
     <LogoList>
       <Logo>
         <img style={{ width: "100%" }} src={props.seminar.images[0]} alt="" />
@@ -37,6 +45,14 @@ const RegularSeminar = styled.div`
   grid-gap: 18px;
   grid-template-columns: repeat(3, 1fr);
   margin: 10px;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 const SeminarCard = styled.div`
@@ -44,6 +60,10 @@ const SeminarCard = styled.div`
   border: 1.5px solid lightgrey;
   border-radius: 20px;
   box-shadow: 3px 3px 3px lightslategrey;
+`
+
+const IconLink = styled.a`
+  margin: 0 0 0 0.5rem;
 `
 
 const Title = styled.h3`
