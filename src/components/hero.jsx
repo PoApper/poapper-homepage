@@ -40,7 +40,7 @@ const Subtitle = styled.h2`
 
 const Information = styled.div`
   display: flex;
-  flex-basis: 40%;
+  flex: 1 0 40%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -56,14 +56,16 @@ const Information = styled.div`
 `
 
 const StyledBubbles = styled(Bubbles)`
-  flex-basis: 60%;
+  flex: 1 0 60%;
   width: 100%;
-  height: auto;
+  height: 30rem;
+  min-height: calc(100vh - 3rem);
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     flex: 1 0 100vw;
     width: 100vw;
     height: 100vw;
+    min-height: auto;
     margin: 0 -1rem;
   }
 `
