@@ -2,12 +2,16 @@ import React from "react"
 import styled from "styled-components"
 
 import Bubbles from "./bubbles"
+import { ExternalLinkButton } from "./links"
 
 const Hero = () => (
   <Container>
     <Information>
       <Title>PoApper</Title>
       <Subtitle>POSTECH 개발자 네트워크</Subtitle>
+      <ExternalLinkButton href="https://github.com/poapper">
+        Github
+      </ExternalLinkButton>
     </Information>
     <StyledBubbles />
   </Container>
@@ -31,11 +35,19 @@ const Title = styled.h1`
   -webkit-text-fill-color: transparent;
   background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 90%);
   background-clip: text;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
+    font-size: 3em;
+  }
 `
 
 const Subtitle = styled.h2`
-  margin: 0;
-  font-size: 1.5em;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8em;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
+    font-size: 1.5em;
+  }
 `
 
 const Information = styled.div`
@@ -45,10 +57,6 @@ const Information = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 1rem 0;
-
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
-    font-size: 80%;
-  }
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     flex: 0 1;

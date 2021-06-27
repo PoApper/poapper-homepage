@@ -8,11 +8,13 @@ const theme = {
     default: "#ffffffff",
     sub: "#eeeeeeff",
     selection: "#00000022",
+    button: "#000000ff",
   },
   foreground: {
     default: "#333333ff",
     sub: "#a0a0a0ff",
     link: "#6196f2ff",
+    button: "#ffffffff",
   },
   breakpoint: {
     m: "70rem",
