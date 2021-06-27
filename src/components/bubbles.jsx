@@ -140,7 +140,7 @@ const Bubbles = ({
   }, [])
 
   return (
-    <div {...props}>
+    <>
       <ScaledSvg
         width={svgWidth}
         height={svgHeight}
@@ -148,6 +148,7 @@ const Bubbles = ({
         preserveAspectRatio="xMidYMid meet"
         scaledWidth={width}
         scaledHeight={height}
+        {...props}
       >
         {nodes.map(node => (
           <a href={node.to} className="bubble">
@@ -169,7 +170,7 @@ const Bubbles = ({
         ))}
       </ScaledSvg>
       <Tooltip id="bubble-tooltip"></Tooltip>
-    </div>
+    </>
   )
 }
 
