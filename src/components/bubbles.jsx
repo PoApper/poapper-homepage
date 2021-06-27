@@ -106,7 +106,7 @@ const Bubbles = ({
     bubbles.on("mousemove", function (d, _t) {
       tooltip.style(
         "transform",
-        `translate(${d.pageX + 10}px, ${d.pageY + 10}px)`
+        `translate(${d.clientX + 10}px, ${d.clientY + 10}px)`
       )
     })
 
