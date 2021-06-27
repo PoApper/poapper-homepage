@@ -71,7 +71,7 @@ const Bubbles = ({
     tooltip.data(nodes).style("position", "fixed")
 
     // Increase bubble size and display tooltip on mouseover
-    bubbles.on("mouseover", function (d, t) {
+    bubbles.on("mouseover", function (_d, t) {
       t.radius *= config.hoverScale
       select(this)
         .select("clipPath > circle")
@@ -87,7 +87,7 @@ const Bubbles = ({
     })
 
     // Decrease bubble size and hide tooltip on mouseout
-    bubbles.on("mouseout", function (d, t) {
+    bubbles.on("mouseout", function (_d, t) {
       t.radius /= config.hoverScale
       select(this)
         .select("clipPath > circle")
@@ -103,7 +103,7 @@ const Bubbles = ({
     })
 
     // Move tooltip to mouse position. CSS transform is used for performance.
-    bubbles.on("mousemove", function (d, t) {
+    bubbles.on("mousemove", function (d, _t) {
       tooltip.style(
         "transform",
         `translate(${d.pageX + 10}px, ${d.pageY + 10}px)`
