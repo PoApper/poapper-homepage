@@ -16,7 +16,7 @@ const Hero = () => (
 const Container = styled.div`
   display: flex;
   max-width: ${({ theme }) => theme.contentWidth};
-  height: calc(100vh - 3rem);
+  min-height: calc(100vh - 3rem);
   margin: auto;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
@@ -61,9 +61,10 @@ const StyledBubbles = styled(Bubbles)`
   height: auto;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    flex: 1 0 60%;
-    max-width: 60vh;
-    margin: 0 0 0 -1rem;
+    flex: 1 0 100vw;
+    width: 100vw;
+    height: 100vw;
+    margin: 0 -1rem;
   }
 `
 
