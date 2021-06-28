@@ -1,9 +1,10 @@
-import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
-const Box = ({ name, category, img, description, links }) => (
-  <BoxContainer>
+import { ExternalLinkButton } from "./links"
+
+const ContentCard = ({ name, category, img, description, links }) => (
+  <ContentCardContainer>
     <Header>
       <LogoImage src={img} />
       <CoreInfo>
@@ -15,16 +16,16 @@ const Box = ({ name, category, img, description, links }) => (
       <Description>{description}</Description>
       <Links>
         {links.map(link => (
-          <Link to={link.to}>
-            <ButtonLink>{link.text}</ButtonLink>
-          </Link>
+          <StyledExternalLinkButton href={link.to}>
+            {link.text}
+          </StyledExternalLinkButton>
         ))}
       </Links>
     </DescriptionDiv>
-  </BoxContainer>
+  </ContentCardContainer>
 )
 
-const BoxContainer = styled.div`
+const ContentCardContainer = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 0 0 3rem 0;
@@ -59,23 +60,20 @@ const CoreInfo = styled.div`
   margin: 0 0 0 0.75rem;
 `
 
-const Name = styled.div`
-  color: #666666;
-  font-weight: 800;
+const Name = styled.h4`
+  margin: 0;
+  font-weight: 700;
+  font-size: 1em;
 `
 
-const Category = styled.div`
-  color: #666666;
-`
+const Category = styled.span``
 
 const DescriptionDiv = styled.div`
   flex: 1 1;
 `
 
 const Description = styled.p`
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    font-size: 12px;
-  }
+  margin: 0 0 1rem 0;
 `
 
 const Links = styled.div`
@@ -83,16 +81,8 @@ const Links = styled.div`
   flex-direction: row;
 `
 
-const ButtonLink = styled.button`
-  width: 70px;
-  height: 30px;
-  margin: 0 0.1rem;
-  color: white;
-  font-weight: 600;
-  background: black;
-
-  border: none;
-  border-radius: 20px;
+const StyledExternalLinkButton = styled(ExternalLinkButton)`
+  margin: 0 0.25rem 0 0;
 `
 
-export default Box
+export default ContentCard

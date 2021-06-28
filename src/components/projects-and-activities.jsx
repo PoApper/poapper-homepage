@@ -1,15 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 
-import Box from "./boxes"
+import ContentCard from "./content-card"
 
 const ProjectsAndActivities = () => {
   return (
-    <div>
+    <Container>
       <Project>
         <Header>Projects</Header>
         {project_contents.map(content => (
-          <Box
+          <ContentCard
             name={content.name}
             category={content.category}
             description={content.description}
@@ -22,7 +22,7 @@ const ProjectsAndActivities = () => {
       <Project>
         <Header>Activities</Header>
         {activity_contents.map(content => (
-          <Box
+          <ContentCard
             name={content.name}
             category={content.category}
             description={content.description}
@@ -31,7 +31,7 @@ const ProjectsAndActivities = () => {
           />
         ))}
       </Project>
-    </div>
+    </Container>
   )
 }
 
@@ -90,11 +90,16 @@ const activity_contents = [
 const Header = styled.h3`
   margin: 3rem 0 2rem 0;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 1.8em;
 `
 
 const Project = styled.div`
-  margin: 2rem 0;
+  margin: 5rem 0;
+`
+
+const Container = styled.div`
+  max-width: ${({ theme }) => theme.contentWidth};
+  margin: auto;
 `
 
 export default ProjectsAndActivities

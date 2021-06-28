@@ -8,17 +8,17 @@
 
 // ES6 import syntax
 import React from "react"
-import { Helmet } from "react-helmet"
-import styled from "styled-components"
 
 import Hero from "../components/hero"
 import Overview from "../components/overview"
+import ProjectsAndActivities from "../components/projects-and-activities"
 
 // Uses React functional components
 const IndexPage = () => (
   <>
     <Hero />
     <Overview />
+    <ProjectsAndActivities />
   </>
 )
 
