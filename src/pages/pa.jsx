@@ -11,7 +11,7 @@ const Pa = () => (
 )
 
 const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.contentWidth};
+  max-width: 60rem;
   margin: auto;
 `
 
