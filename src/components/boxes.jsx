@@ -29,11 +29,10 @@ export default Box
 const BoxContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  margin: 1.5rem 0 1.5rem 0.5rem;
+  margin: 0 0 3rem 0;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     flex-direction: column;
-    margin: 2rem 0;
   }
 `
 const Logoimage = styled.div`

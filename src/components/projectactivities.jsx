@@ -82,14 +82,9 @@ const Projectactivities = () => {
 export default Projectactivities
 
 const Head = styled.div`
-  font-weight: 600;
-  font-size: 22px;
-
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    text-align: center;
-  }
+  font-weight: 700;
+  font-size: 1.5em;
 `
 const Project = styled.div`
-  display: grid;
   margin: 0 auto;
 `
