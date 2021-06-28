@@ -50,11 +50,11 @@ const activity_contents = [
   },
 ]
 
-const Projectactivities = () => {
+const ProjectsAndActivities = () => {
   return (
     <div>
       <Project>
-        <Head>Project</Head>
+        <Header>Project</Header>
         {project_contents.map(content => (
           <Box
             name={content.name}
@@ -66,7 +66,7 @@ const Projectactivities = () => {
       </Project>
 
       <Project>
-        <Head>Activity</Head>
+        <Header>Activity</Header>
         {activity_contents.map(content => (
           <Box
             name={content.name}
@@ -79,13 +79,13 @@ const Projectactivities = () => {
     </div>
   )
 }
-export default Projectactivities
+export default ProjectsAndActivities
 
-const Head = styled.h3`
+const Header = styled.h3`
   margin: 2rem 0 1rem 0;
   font-weight: 700;
   font-size: 1.5em;
 `
 const Project = styled.div`
-  margin: 0 auto;
+  margin: 1rem 0;
 `
