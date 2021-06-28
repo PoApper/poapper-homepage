@@ -29,15 +29,15 @@ export default Box
 const BoxContainer = styled.div`
   display: flex;
   align-items: flex-start;
-  margin-top: 20px;
-  margin-left: 10px;
+  margin: 1.5rem 0 1.5rem 0.5rem;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     flex-direction: column;
+    margin: 2rem 0;
   }
 `
 const Logoimage = styled.div`
-  display: flex;
+  flex: 0 0 50px;
   width: 50px;
   height: 50px;
   background: blue;
@@ -46,18 +46,20 @@ const Logoimage = styled.div`
 
 const ImageandName = styled.div`
   display: flex;
-  margin: 0 1rem 0 0;
+  flex-basis: 15rem;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    flex-basis: auto;
     margin: 0.5rem 0;
   }
 `
 
 const Nameandcategory = styled.div`
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   justify-content: center;
-  margin: 0 0.75rem;
+  margin: 0 0 0 0.75rem;
 `
 const Name = styled.div`
   color: #666666;
@@ -66,11 +68,10 @@ const Name = styled.div`
 const Category = styled.div`
   color: #666666;
 `
-const ContentandButton = styled.div``
+const ContentandButton = styled.div`
+  flex: 1 1;
+`
 const Content = styled.p`
-  display: flex;
-  max-width: 700px;
-
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 12px;
   }
