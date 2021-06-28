@@ -7,7 +7,7 @@ const ProjectsAndActivities = () => {
   return (
     <div>
       <Project>
-        <Header>Project</Header>
+        <Header>Projects</Header>
         {project_contents.map(content => (
           <Box
             name={content.name}
@@ -20,7 +20,7 @@ const ProjectsAndActivities = () => {
       </Project>
 
       <Project>
-        <Header>Activity</Header>
+        <Header>Activities</Header>
         {activity_contents.map(content => (
           <Box
             name={content.name}
