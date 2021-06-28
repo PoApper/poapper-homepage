@@ -34,3 +34,7 @@ npm run build
 - Formatted and linted automatically via lint-staged
 - Formatted with prettier
 - Linted with eslint and stylelint
+
+## Project and Activities 확인하는 법
+
+- localhost:8000/pa/ 로 접속하면 확인하실 수 있습니다.
