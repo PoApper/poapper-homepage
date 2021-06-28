@@ -81,7 +81,8 @@ const Projectactivities = () => {
 }
 export default Projectactivities
 
-const Head = styled.div`
+const Head = styled.h3`
+  margin: 2rem 0 1rem 0;
   font-weight: 700;
   font-size: 1.5em;
 `
