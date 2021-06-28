@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import Box from "./boxes"
+import ContentCard from "./content-card"
 
 const ProjectsAndActivities = () => {
   return (
@@ -9,7 +9,7 @@ const ProjectsAndActivities = () => {
       <Project>
         <Header>Projects</Header>
         {project_contents.map(content => (
-          <Box
+          <ContentCard
             name={content.name}
             category={content.category}
             description={content.description}
@@ -22,7 +22,7 @@ const ProjectsAndActivities = () => {
       <Project>
         <Header>Activities</Header>
         {activity_contents.map(content => (
-          <Box
+          <ContentCard
             name={content.name}
             category={content.category}
             description={content.description}

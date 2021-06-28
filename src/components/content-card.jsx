@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 import { ExternalLinkButton } from "./links"
 
-const Box = ({ name, category, img, description, links }) => (
-  <BoxContainer>
+const ContentCard = ({ name, category, img, description, links }) => (
+  <ContentCardContainer>
     <Header>
       <LogoImage src={img} />
       <CoreInfo>
@@ -22,10 +22,10 @@ const Box = ({ name, category, img, description, links }) => (
         ))}
       </Links>
     </DescriptionDiv>
-  </BoxContainer>
+  </ContentCardContainer>
 )
 
-const BoxContainer = styled.div`
+const ContentCardContainer = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 0 0 3rem 0;
@@ -85,4 +85,4 @@ const StyledExternalLinkButton = styled(ExternalLinkButton)`
   margin: 0 0.25rem 0 0;
 `
 
-export default Box
+export default ContentCard
