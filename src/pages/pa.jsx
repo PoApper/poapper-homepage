@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 
-import Projectactivities from "../components/projectactivities"
+import ProjectsAndActivities from "../components/projects-and-activities"
 
 const Pa = () => (
   <Wrapper>
-    <Projectactivities />
+    <ProjectsAndActivities />
   </Wrapper>
 )
 
