@@ -61,14 +61,12 @@ const Boxes = props => {
 export default Boxes
 
 const Box = styled.div`
-  display: grid;
-  grid-template-columns: 200px auto;
+  display: flex;
   margin-top: 20px;
   margin-left: 10px;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    grid-template-rows: 70px;
-    grid-template-columns: auto;
+    flex-direction: column;
   }
 `
 const Logoimage = styled.div`
@@ -78,31 +76,26 @@ const Logoimage = styled.div`
   background: blue;
   border-radius: 30%;
 `
+
 const ImageandName = styled.div`
-  display: grid;
-  grid-template-columns: 70px 130px;
+  display: flex;
+  margin: 0.5rem 0;
 `
+
 const Nameandcategory = styled.div`
-  display: grid;
-  grid-template-rows: 23px;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0.75rem;
 `
 const Name = styled.div`
-  display: flex;
-  height: 10px;
   color: #666666;
   font-weight: 800;
 `
 const Category = styled.div`
-  display: flex;
-  height: 10px;
   color: #666666;
 `
-const ContentandButton = styled.div`
-  display: grid;
-  grid-row-gap: 0px;
-  grid-template-rows: auto auto;
-`
+const ContentandButton = styled.div``
 const Content = styled.p`
   display: flex;
   max-width: 700px;
@@ -112,14 +105,13 @@ const Content = styled.p`
   }
 `
 const Buttons = styled.div`
-  display: grid;
-  grid-column-gap: 7px;
-  grid-template-columns: 70px 70px;
-  height: 30px;
+  display: flex;
+  flex-direction: row;
 `
 const Button = styled.button`
   width: 70px;
   height: 30px;
+  margin: 0 0.1rem;
   color: white;
   font-weight: 600;
   background: black;
