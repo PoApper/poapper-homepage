@@ -1,6 +1,7 @@
-import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
+
+import { ExternalLinkButton } from "./links"
 
 const Box = ({ name, category, img, description, links }) => (
   <BoxContainer>
@@ -15,9 +16,9 @@ const Box = ({ name, category, img, description, links }) => (
       <Description>{description}</Description>
       <Links>
         {links.map(link => (
-          <Link to={link.to}>
-            <ButtonLink>{link.text}</ButtonLink>
-          </Link>
+          <StyledExternalLinkButton href={link.to}>
+            {link.text}
+          </StyledExternalLinkButton>
         ))}
       </Links>
     </DescriptionDiv>
@@ -83,16 +84,8 @@ const Links = styled.div`
   flex-direction: row;
 `
 
-const ButtonLink = styled.button`
-  width: 70px;
-  height: 30px;
-  margin: 0 0.1rem;
-  color: white;
-  font-weight: 600;
-  background: black;
-
-  border: none;
-  border-radius: 20px;
+const StyledExternalLinkButton = styled(ExternalLinkButton)`
+  margin: 0 0.25rem 0 0;
 `
 
 export default Box
