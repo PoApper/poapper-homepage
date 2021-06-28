@@ -28,6 +28,7 @@ export default Box
 
 const BoxContainer = styled.div`
   display: flex;
+  align-items: flex-start;
   margin-top: 20px;
   margin-left: 10px;
 
@@ -45,7 +46,11 @@ const Logoimage = styled.div`
 
 const ImageandName = styled.div`
   display: flex;
-  margin: 0.5rem 0;
+  margin: 0 1rem 0 0;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    margin: 0.5rem 0;
+  }
 `
 
 const Nameandcategory = styled.div`
