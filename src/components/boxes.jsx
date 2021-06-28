@@ -60,23 +60,20 @@ const CoreInfo = styled.div`
   margin: 0 0 0 0.75rem;
 `
 
-const Name = styled.div`
-  color: #666666;
-  font-weight: 800;
+const Name = styled.h4`
+  margin: 0;
+  font-weight: 700;
+  font-size: 1em;
 `
 
-const Category = styled.div`
-  color: #666666;
-`
+const Category = styled.span``
 
 const DescriptionDiv = styled.div`
   flex: 1 1;
 `
 
 const Description = styled.p`
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    font-size: 12px;
-  }
+  margin: 0 0 1rem 0;
 `
 
 const Links = styled.div`
