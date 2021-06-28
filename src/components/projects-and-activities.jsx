@@ -5,7 +5,7 @@ import Box from "./boxes"
 
 const ProjectsAndActivities = () => {
   return (
-    <div>
+    <Container>
       <Project>
         <Header>Projects</Header>
         {project_contents.map(content => (
@@ -31,7 +31,7 @@ const ProjectsAndActivities = () => {
           />
         ))}
       </Project>
-    </div>
+    </Container>
   )
 }
 
@@ -95,6 +95,11 @@ const Header = styled.h3`
 
 const Project = styled.div`
   margin: 2rem 0;
+`
+
+const Container = styled.div`
+  max-width: ${({ theme }) => theme.contentWidth};
+  margin: auto;
 `
 
 export default ProjectsAndActivities
