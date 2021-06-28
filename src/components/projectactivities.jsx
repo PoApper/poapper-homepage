@@ -1,11 +1,10 @@
-import { Link } from "gatsby"
 import React, { useState } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 import Boxes from "./boxes"
 
 const Projectactivities = () => {
-  const [project_contents, setProject] = useState([
+  const [project_contents, _setProject] = useState([
     {
       name: "project one",
       category: "web app",
@@ -22,7 +21,7 @@ const Projectactivities = () => {
     },
   ])
 
-  const [activity_contents, setActivitiy] = useState([
+  const [activity_contents, _setActivitiy] = useState([
     {
       name: "activity one",
       category: "web app",
@@ -73,11 +72,6 @@ const Head = styled.div`
   }
 `
 const Project = styled.div`
-  display: grid;
-  max-width: 960px;
-  margin: 0 auto;
-`
-const Activity = styled.div`
   display: grid;
   max-width: 960px;
   margin: 0 auto;

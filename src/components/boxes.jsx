@@ -60,24 +60,6 @@ const Boxes = props => {
 }
 export default Boxes
 
-const Head = styled.div`
-  font-weight: 600;
-  font-size: 22px;
-
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    text-align: center;
-  }
-`
-const Project = styled.div`
-  display: grid;
-  max-width: 960px;
-  margin: 0 auto;
-`
-const Activity = styled.div`
-  display: grid;
-  max-width: 960px;
-  margin: 0 auto;
-`
 const Box = styled.div`
   display: grid;
   grid-template-columns: 200px auto;
