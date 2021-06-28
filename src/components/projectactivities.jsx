@@ -3,6 +3,36 @@ import styled from "styled-components"
 
 import Box from "./boxes"
 
+const ProjectsAndActivities = () => {
+  return (
+    <div>
+      <Project>
+        <Header>Project</Header>
+        {project_contents.map(content => (
+          <Box
+            name={content.name}
+            category={content.category}
+            description={content.description}
+            links={content.links}
+          />
+        ))}
+      </Project>
+
+      <Project>
+        <Header>Activity</Header>
+        {activity_contents.map(content => (
+          <Box
+            name={content.name}
+            category={content.category}
+            description={content.description}
+            links={content.links}
+          />
+        ))}
+      </Project>
+    </div>
+  )
+}
+
 const project_contents = [
   {
     name: "project one",
@@ -50,42 +80,14 @@ const activity_contents = [
   },
 ]
 
-const ProjectsAndActivities = () => {
-  return (
-    <div>
-      <Project>
-        <Header>Project</Header>
-        {project_contents.map(content => (
-          <Box
-            name={content.name}
-            category={content.category}
-            description={content.description}
-            links={content.links}
-          />
-        ))}
-      </Project>
-
-      <Project>
-        <Header>Activity</Header>
-        {activity_contents.map(content => (
-          <Box
-            name={content.name}
-            category={content.category}
-            description={content.description}
-            links={content.links}
-          />
-        ))}
-      </Project>
-    </div>
-  )
-}
-export default ProjectsAndActivities
-
 const Header = styled.h3`
   margin: 2rem 0 1rem 0;
   font-weight: 700;
   font-size: 1.5em;
 `
+
 const Project = styled.div`
   margin: 1rem 0;
 `
+
+export default ProjectsAndActivities

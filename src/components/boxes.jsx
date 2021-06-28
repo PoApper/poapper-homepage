@@ -24,8 +24,6 @@ const Box = ({ name, category, img, description, links }) => (
   </BoxContainer>
 )
 
-export default Box
-
 const BoxContainer = styled.div`
   display: flex;
   align-items: flex-start;
@@ -35,6 +33,7 @@ const BoxContainer = styled.div`
     flex-direction: column;
   }
 `
+
 const LogoImage = styled.div`
   flex: 0 0 50px;
   width: 50px;
@@ -60,25 +59,31 @@ const CoreInfo = styled.div`
   justify-content: center;
   margin: 0 0 0 0.75rem;
 `
+
 const Name = styled.div`
   color: #666666;
   font-weight: 800;
 `
+
 const Category = styled.div`
   color: #666666;
 `
+
 const DescriptionDiv = styled.div`
   flex: 1 1;
 `
+
 const Description = styled.p`
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 12px;
   }
 `
+
 const Links = styled.div`
   display: flex;
   flex-direction: row;
 `
+
 const ButtonLink = styled.button`
   width: 70px;
   height: 30px;
@@ -90,3 +95,5 @@ const ButtonLink = styled.button`
   border: none;
   border-radius: 20px;
 `
+
+export default Box
