@@ -4,23 +4,23 @@ import styled from "styled-components"
 
 const Box = ({ name, category, img, description, links }) => (
   <BoxContainer>
-    <ImageandName>
-      <Logoimage></Logoimage>
-      <Nameandcategory>
+    <Header>
+      <LogoImage></LogoImage>
+      <CoreInfo>
         <Name>{name}</Name>
         <Category>{category}</Category>
-      </Nameandcategory>
-    </ImageandName>
-    <ContentandButton>
-      <Content>{description}</Content>
-      <Buttons>
+      </CoreInfo>
+    </Header>
+    <DescriptionDiv>
+      <Description>{description}</Description>
+      <Links>
         {links.map(link => (
           <Link to={link.to}>
-            <Button>{link.text}</Button>
+            <ButtonLink>{link.text}</ButtonLink>
           </Link>
         ))}
-      </Buttons>
-    </ContentandButton>
+      </Links>
+    </DescriptionDiv>
   </BoxContainer>
 )
 
@@ -35,7 +35,7 @@ const BoxContainer = styled.div`
     flex-direction: column;
   }
 `
-const Logoimage = styled.div`
+const LogoImage = styled.div`
   flex: 0 0 50px;
   width: 50px;
   height: 50px;
@@ -43,7 +43,7 @@ const Logoimage = styled.div`
   border-radius: 30%;
 `
 
-const ImageandName = styled.div`
+const Header = styled.div`
   display: flex;
   flex-basis: 15rem;
 
@@ -53,7 +53,7 @@ const ImageandName = styled.div`
   }
 `
 
-const Nameandcategory = styled.div`
+const CoreInfo = styled.div`
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
@@ -67,19 +67,19 @@ const Name = styled.div`
 const Category = styled.div`
   color: #666666;
 `
-const ContentandButton = styled.div`
+const DescriptionDiv = styled.div`
   flex: 1 1;
 `
-const Content = styled.p`
+const Description = styled.p`
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 12px;
   }
 `
-const Buttons = styled.div`
+const Links = styled.div`
   display: flex;
   flex-direction: row;
 `
-const Button = styled.button`
+const ButtonLink = styled.button`
   width: 70px;
   height: 30px;
   margin: 0 0.1rem;
