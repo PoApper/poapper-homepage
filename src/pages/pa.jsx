@@ -1,12 +1,18 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import styled from "styled-components"
 
 import Projectactivities from "../components/projectactivities"
 
 const Pa = () => (
-  <Projectactivities>
-    <Helmet lang="en" title="projects and activities" />
-  </Projectactivities>
+  <Wrapper>
+    <Projectactivities />
+  </Wrapper>
 )
+
+const Wrapper = styled.div`
+  max-width: ${({ theme }) => theme.contentWidth};
+  margin: auto;
+`
 
 export default Pa
