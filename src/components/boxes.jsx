@@ -5,7 +5,7 @@ import styled from "styled-components"
 const Box = ({ name, category, img, description, links }) => (
   <BoxContainer>
     <Header>
-      <LogoImage></LogoImage>
+      <LogoImage src={img} />
       <CoreInfo>
         <Name>{name}</Name>
         <Category>{category}</Category>
@@ -34,11 +34,10 @@ const BoxContainer = styled.div`
   }
 `
 
-const LogoImage = styled.div`
+const LogoImage = styled.img`
   flex: 0 0 50px;
   width: 50px;
   height: 50px;
-  background: blue;
   border-radius: 30%;
 `
 
