@@ -3,6 +3,7 @@ import { css } from "styled-components"
 const buttonStyle = css`
   padding: 0.3rem 1rem;
   color: ${({ theme }) => theme.foreground.button};
+  text-decoration: none;
   background: ${({ theme }) => theme.background.button};
   border-radius: 1rem;
 `
