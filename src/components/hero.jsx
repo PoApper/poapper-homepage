@@ -71,6 +71,7 @@ const StyledBubbles = styled(Bubbles)`
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     flex: 1 0 100vw;
+    width: calc(100vw - 1rem);
     height: 100vw;
     min-height: auto;
     margin: 0 -1rem;
