@@ -3,6 +3,8 @@ import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import { HiMenuAlt4 } from "react-icons/hi"
 
+import { InternalLink } from "./links"
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -12,9 +14,9 @@ const Navbar = () => {
         <Items mobileOpen={mobileOpen}>
           <Logo to="/">PoApper</Logo>
           <Links mobileOpen={mobileOpen}>
-            <StyledLink to="/seminar">Seminar</StyledLink>
-            <StyledLink to="/people">People</StyledLink>
-            <StyledLink to="/hackathon">Hackathon</StyledLink>
+            <StyledInternalLink to="/seminar">Seminar</StyledInternalLink>
+            <StyledInternalLink to="/people">People</StyledInternalLink>
+            <StyledInternalLink to="/hackathon">Hackathon</StyledInternalLink>
           </Links>
         </Items>
         <MobileButton onClick={() => setMobileOpen(!mobileOpen)}>
@@ -64,6 +66,7 @@ const Logo = styled(Link)`
   font-weight: 700;
   font-size: 1.1em;
   line-height: 1;
+  text-decoration: none;
 
   &:hover {
     color: inherit;
@@ -96,7 +99,7 @@ const MobileButton = styled.button`
   }
 `
 
-const StyledLink = styled(Link)`
+const StyledInternalLink = styled(InternalLink)`
   margin: 0 0 0 1rem;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {

@@ -50,7 +50,7 @@ const NumberStackGridContainer = styled.div`
 `
 
 const NumberStackSubtext = styled.span`
-  margin: 0 0 0.2rem 0.1rem;
+  margin: 0 0 0 0.1rem;
   color: ${({ theme }) => theme.foreground.sub};
   font-size: 0.8em;
 `
@@ -64,6 +64,7 @@ const NumberStackContainer = styled.div`
 const GradientNumber = styled.span`
   font-weight: 700;
   font-size: 2.6rem;
+  line-height: 1;
   letter-spacing: -0.1rem;
   -webkit-text-fill-color: transparent;
   background: linear-gradient(274.68deg, #ff008a -3.5%, #fc6815 84%);
