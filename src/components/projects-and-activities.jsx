@@ -90,7 +90,7 @@ const activity_contents = [
 const Header = styled.h3`
   margin: 3rem 0 2rem 0;
   font-weight: 700;
-  font-size: 1.8em;
+  font-size: 1.5em;
 `
 
 const Project = styled.div`
