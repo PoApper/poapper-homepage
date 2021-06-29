@@ -30,23 +30,23 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin: 0;
-  font-size: 3.5em;
-  letter-spacing: -0.15rem;
+  font-size: 2.75em;
+  letter-spacing: -0.05em;
   -webkit-text-fill-color: transparent;
   background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 90%);
   background-clip: text;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
-    font-size: 3em;
+    font-size: 2.5em;
   }
 `
 
 const Subtitle = styled.h2`
   margin: 0 0 1.5rem 0;
-  font-size: 1.8em;
+  font-size: 1.375em;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
 `
 
