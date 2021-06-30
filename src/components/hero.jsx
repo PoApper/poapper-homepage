@@ -20,11 +20,14 @@ const Hero = () => (
 const Container = styled.div`
   display: flex;
   max-width: ${({ theme }) => theme.contentWidth};
-  min-height: calc(100vh - 3rem);
+  height: calc(100vh - 3rem);
+  min-height: 30rem;
+  max-height: 60rem;
   margin: auto;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     flex-direction: column-reverse;
+    min-height: 30rem;
   }
 `
 
@@ -66,14 +69,15 @@ const Information = styled.div`
 const StyledBubbles = styled(Bubbles)`
   flex: 1 0 60%;
   width: 100%;
-  height: 30rem;
-  min-height: calc(100vh - 3rem);
+  height: calc(100vh - 3rem);
+  min-height: 30rem;
+  max-height: 60rem;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    flex: 1 0 100vw;
+    flex: 1 1 100vw;
     width: calc(100vw - 1rem);
     height: 100vw;
-    min-height: auto;
+    min-height: initial;
     margin: 0 -1rem;
   }
 `
