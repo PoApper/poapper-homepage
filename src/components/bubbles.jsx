@@ -66,6 +66,13 @@ const Bubbles = ({
   useEffect(() => {
     const bubbles = selectAll(".bubble") // All bubbles
     bubbles.data(nodes)
+    bubbles.select("clipPath > circle").attr("r", d => d.radius)
+    bubbles
+      .select("image")
+      .style("width", d => `${2 * d.radius}px`)
+      .style("height", d => `${2 * d.radius}px`)
+      .attr("x", d => -d.radius)
+      .attr("y", d => -d.radius)
 
     const tooltip = select("#bubble-tooltip") // Tooltip that appears on hover
     tooltip.data(nodes).style("position", "fixed")
