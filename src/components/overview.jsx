@@ -79,22 +79,28 @@ const Container = styled.div`
   justify-content: space-between;
   max-width: ${({ theme }) => theme.contentWidth};
   margin: 5rem auto;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    margin: 10rem auto 5rem auto;
+  }
 `
+
+const gitViewBreakpoint = "50rem"
 
 const OverviewWrapper = styled.div`
   width: 50%;
   margin: 2rem 0;
 
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+  @media only screen and (max-width: ${gitViewBreakpoint}) {
     width: auto;
   }
 `
 
 const OverviewText = styled.p`
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+  @media only screen and (max-width: ${gitViewBreakpoint}) {
     width: auto;
   }
 `
@@ -112,7 +118,7 @@ const GitView = styled.pre`
   background: #000000;
   border-radius: 1rem;
 
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+  @media only screen and (max-width: ${gitViewBreakpoint}) {
     display: none;
   }
 `

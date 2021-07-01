@@ -94,12 +94,12 @@ const Header = styled.h3`
 `
 
 const Project = styled.div`
-  margin: 5rem 0;
+  margin: 8rem 0;
 `
 
 const Container = styled.div`
   max-width: ${({ theme }) => theme.contentWidth};
-  margin: auto;
+  margin: 10rem auto;
 `
 
 export default ProjectsAndActivities
