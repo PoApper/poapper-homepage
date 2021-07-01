@@ -5,7 +5,10 @@ module.exports = {
     title: "poapper-homepage",
     description: "PoApper Club Homepage",
     author: "PoApper",
-    siteUrl: "https://example.com",
+    siteUrl: "https://club.poapper.com",
+    facebook: "https://www.facebook.com/poapper.club",
+    github: "https://github.com/poapper",
+    mail: "poapper@gmail.com",
   },
   plugins: [
     "gatsby-plugin-styled-components", // Uses styled-components for styling, ...

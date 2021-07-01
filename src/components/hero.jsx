@@ -1,21 +1,36 @@
+import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
 import Bubbles from "./bubbles"
 import { ExternalLinkButton } from "./links"
 
-const Hero = () => (
-  <Container>
-    <Information>
-      <Title>PoApper</Title>
-      <Subtitle>POSTECH 개발자 네트워크</Subtitle>
-      <ExternalLinkButton href="https://github.com/poapper">
-        Github
-      </ExternalLinkButton>
-    </Information>
-    <StyledBubbles />
-  </Container>
-)
+const Hero = () => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          github
+        }
+      }
+    }
+  `)
+
+  return (
+    <Container>
+      <Information>
+        <Title>PoApper</Title>
+        <Subtitle>POSTECH 개발자 네트워크</Subtitle>
+        <ExternalLinkButton href={siteMetadata.github}>
+          Github
+        </ExternalLinkButton>
+      </Information>
+      <StyledBubbles />
+    </Container>
+  )
+}
 
 const Container = styled.div`
   display: flex;

@@ -1,24 +1,39 @@
 import React from "react"
 import styled from "styled-components"
 import { FaFacebook, FaGithub } from "react-icons/fa"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { ExternalLink } from "./links"
 
 const Footer = () => {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          facebook
+          github
+          mail
+        }
+      }
+    }
+  `)
+
   return (
     <FooterElement>
       <Container>
         <div>
           <Addr>포항시 남구 청암로 77 학생회관 211호</Addr>
-          <ExternalLink href="mailto:staff@poapper.com">
-            staff@poapper.com
+          <ExternalLink href={`mailto:${siteMetadata.mail}`}>
+            {siteMetadata.mail}
           </ExternalLink>
         </div>
         <IconLinks>
-          <IconLink href="https://github.com/poapper">
+          <IconLink href={siteMetadata.github}>
             <FaGithub size="2rem" />
           </IconLink>
-          <IconLink href="https://www.facebook.com/poapper.club/">
+          <IconLink href={siteMetadata.facebook}>
             <FaFacebook size="2rem" />
           </IconLink>
         </IconLinks>
