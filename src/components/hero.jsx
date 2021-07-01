@@ -48,7 +48,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.h2`
   margin: 0 0 1.5rem 0;
-  font-size: 1.375em;
+  font-size: 1.5em;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
     font-size: 1.25em;
