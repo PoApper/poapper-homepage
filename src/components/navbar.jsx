@@ -3,6 +3,8 @@ import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import { HiMenuAlt4 } from "react-icons/hi"
 
+import IconImg from "../images/icon.png"
+
 import { InternalLink } from "./links"
 
 const Navbar = () => {
@@ -12,7 +14,10 @@ const Navbar = () => {
     <Container>
       <Nav>
         <Items mobileOpen={mobileOpen}>
-          <Logo to="/">PoApper</Logo>
+          <Logo to="/">
+            <Icon src={IconImg} alt="icon" />
+            PoApper
+          </Logo>
           <Links mobileOpen={mobileOpen}>
             <StyledInternalLink to="/seminar">Seminar</StyledInternalLink>
             <StyledInternalLink to="/people">People</StyledInternalLink>
@@ -30,7 +35,7 @@ const Navbar = () => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   border-bottom: 1px solid #eeeeee;
 `
 
@@ -44,9 +49,16 @@ const Nav = styled.nav`
   margin: auto;
 `
 
+const Icon = styled.img`
+  width: 3rem;
+  height: auto;
+  margin: -1rem 0.5rem -1rem 0;
+`
+
 const Items = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 
@@ -76,14 +88,15 @@ const Logo = styled(Link)`
 const Links = styled.div`
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     display: none;
-    margin: 1rem 0 0 0;
+    width: 100%;
+    margin: 2rem 0 0 0;
 
     ${({ mobileOpen }) =>
       mobileOpen &&
       css`
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-end;
       `}
   }
 `
