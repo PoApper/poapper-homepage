@@ -8,11 +8,11 @@ import SeminarTimeline from "../components/seminar-timeline"
 
 // Uses React functional components
 const SeminarPage = () => (
-  <Wrapper>
+  <Container>
     {/* <head> management by react-helmet */}
     <Helmet lang="en" title="seminar" />
     <Introduction>
-      <h1>Seminar.</h1>
+      <Title>Seminar.</Title>
       <Description>
         포애퍼는 <b>정기 세미나</b>와 <b>정모 세미나</b>를 통해 기술을 공유하고
         교류하며 성장합니다. 누구나 세미나 열 수 있고, 자유롭게 참가할 수
@@ -21,8 +21,8 @@ const SeminarPage = () => (
       </Description>
     </Introduction>
 
-    <div style={{ margin: "3rem 0" }}>
-      <h2>정기 세미나.</h2>
+    <div style={{ margin: "5rem 0" }}>
+      <GradientNumber>정기 세미나.</GradientNumber>
       <Description>
         포애퍼는 매학기 실력이 검증된 포애퍼 정회원이 정기 세미나를 열어 개발
         입문자에게 로드맵과 노하우를 제공합니다. 정기 세미나는 3개월 동안
@@ -33,8 +33,8 @@ const SeminarPage = () => (
       <SeminarCardGrid />
     </div>
 
-    <div style={{ margin: "3rem 0" }}>
-      <h2>정모 세미나.</h2>
+    <div style={{ margin: "5rem 0" }}>
+      <GradientNumber>정모 세미나.</GradientNumber>
       <Description>
         매주 진행되는 정기 모임에서 개발 관련 이슈와 노하우 등을 공유하는 세미나
         입니다. 누구나 참여할 수 있으며, 자발적인 참여로 진행됩니다. 포애퍼
@@ -43,7 +43,7 @@ const SeminarPage = () => (
       </Description>
       <SeminarTimeline />
     </div>
-  </Wrapper>
+  </Container>
 )
 
 const Introduction = styled.div`
@@ -54,29 +54,35 @@ const Description = styled.p`
   font-size: 18px;
 `
 
-const Wrapper = styled.div`
-  justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100rem;
-  height: 100vh;
+const Container = styled.div`
+  max-width: ${({ theme }) => theme.contentWidth};
   margin: auto;
-  padding: 0 4rem;
+`
+
+const Title = styled.h1`
+  margin: 0;
+  font-size: 2.75em;
+  letter-spacing: -0.05em;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 90%);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  background-clip: text;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.m}) {
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    padding: 1rem;
-  }
-
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
-    padding: 0;
+    font-size: 2.5em;
   }
 `
 
-const Divider = styled.hr`
-  margin: 5px;
-  border-top: 1.8px solid black;
+const GradientNumber = styled.h2`
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.1rem;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(274.68deg, #ff008a -3.5%, #fc6815 84%);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  background-clip: text;
 `
 
 export default SeminarPage
