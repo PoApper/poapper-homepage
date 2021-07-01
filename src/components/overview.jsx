@@ -79,6 +79,10 @@ const Container = styled.div`
   justify-content: space-between;
   max-width: ${({ theme }) => theme.contentWidth};
   margin: 5rem auto;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    margin: 10rem auto 5rem auto;
+  }
 `
 
 const gitViewBreakpoint = "50rem"
