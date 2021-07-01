@@ -10,7 +10,11 @@
     "color-hex-length": "long",
     "string-quotes": "double",
     "indentation": 2,
-    "media-feature-name-no-unknown": null
+    "media-feature-name-no-unknown": null,
+    "property-no-vendor-prefix": [
+      true,
+      { "ignoreProperties": ["background-clip"] }
+    ]
   },
   "plugins": ["stylelint-scss"]
 }

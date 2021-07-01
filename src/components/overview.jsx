@@ -68,6 +68,8 @@ const GradientNumber = styled.span`
   letter-spacing: -0.1rem;
   -webkit-text-fill-color: transparent;
   background: linear-gradient(274.68deg, #ff008a -3.5%, #fc6815 84%);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
   background-clip: text;
 `
 
