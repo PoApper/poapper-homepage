@@ -28,7 +28,10 @@ const PersonCard = ({
   </Container>
 )
 
-const Container = styled.div``
+const Container = styled.div`
+  background: ${({ theme }) => theme.background.sub};
+  border-radius: 1rem;
+`
 
 const Image = styled.img``
 

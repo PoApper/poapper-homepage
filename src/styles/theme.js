@@ -6,7 +6,7 @@
 const theme = {
   background: {
     default: "#ffffffff",
-    sub: "#eeeeeeff",
+    sub: "#fafafaff",
     selection: "#00000022",
     button: "#000000ff",
   },
