@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { FaEnvelope, FaGithub } from "react-icons/fa"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const PersonCard = ({
   image,
@@ -8,11 +9,11 @@ const PersonCard = ({
   position,
   text,
   mail,
-  github,
+  githubUsername,
   ...props
 }) => (
   <Container {...props}>
-    <Image src={image} />
+    <GatsbyImage image={image} alt={name}></GatsbyImage>
     <Name>{name}</Name>
     <Position>{position}</Position>
     <Text>{text}</Text>
@@ -20,7 +21,7 @@ const PersonCard = ({
       <Link href={`mailto:${mail}`}>
         <FaEnvelope />
       </Link>
-      <Link href={github}>
+      <Link href={`https://github.com/${githubUsername}`}>
         <FaGithub />
       </Link>
     </Links>
