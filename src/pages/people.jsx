@@ -51,22 +51,32 @@ const PeoplePage = () => {
   `)
 
   return (
-    <Layout>
-      {people.map(person => (
-        <PersonCard
-          image={getImage(
-            data.allFile.nodes.find(node => node.name === person.name)
-          )}
-          name={person.name}
-          position={person.position}
-          text={person.text}
-          mail={person.mail}
-          githubUsername={person.githubUsername}
-        />
-      ))}
-    </Layout>
+    <>
+      <Title>People</Title>
+      <Layout>
+        {people.map(person => (
+          <PersonCard
+            image={getImage(
+              data.allFile.nodes.find(node => node.name === person.name)
+            )}
+            name={person.name}
+            position={person.position}
+            text={person.text}
+            mail={person.mail}
+            githubUsername={person.githubUsername}
+          />
+        ))}
+      </Layout>
+    </>
   )
 }
+
+const Title = styled.h2`
+  max-width: ${({ theme }) => theme.contentWidth};
+  margin: 4rem auto;
+  font-size: 1.75em;
+  letter-spacing: -0.0375em;
+`
 
 const Layout = styled.div`
   display: grid;
