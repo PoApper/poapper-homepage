@@ -8,9 +8,9 @@ const people = [
   {
     name: "이윤규",
     position: "Developer",
-    text: "Web developer, SciML research",
+    text: "Web development, SciML research",
     mail: "me@luc.li",
-    githubUsername: "https://github.com/rocketll",
+    githubUsername: "rocketll",
   },
 ]
 
