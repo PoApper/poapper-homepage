@@ -13,7 +13,7 @@ const PersonCard = ({
   ...props
 }) => (
   <Container {...props}>
-    <GatsbyImage image={image} alt={name}></GatsbyImage>
+    <Image image={image} alt={name}></Image>
     <Name>{name}</Name>
     <Position>{position}</Position>
     <Text>{text}</Text>
@@ -29,11 +29,18 @@ const PersonCard = ({
 )
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
   background: ${({ theme }) => theme.background.sub};
   border-radius: 1rem;
 `
 
-const Image = styled.img``
+const Image = styled(GatsbyImage)`
+  width: 6rem;
+  border-radius: 50%;
+`
 
 const Name = styled.h4``
 

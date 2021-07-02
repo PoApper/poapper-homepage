@@ -80,7 +80,7 @@ const Title = styled.h2`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem;
   max-width: ${({ theme }) => theme.contentWidth};
   margin: 4rem auto;
