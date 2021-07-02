@@ -1,10 +1,32 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import React from "react"
+import styled from "styled-components"
 
 import PersonCard from "../components/person-card"
 
 const people = [
+  {
+    name: "이윤규",
+    position: "Developer",
+    text: "Web development, SciML research",
+    mail: "me@luc.li",
+    githubUsername: "rocketll",
+  },
+  {
+    name: "이윤규",
+    position: "Developer",
+    text: "Web development, SciML research",
+    mail: "me@luc.li",
+    githubUsername: "rocketll",
+  },
+  {
+    name: "이윤규",
+    position: "Developer",
+    text: "Web development, SciML research",
+    mail: "me@luc.li",
+    githubUsername: "rocketll",
+  },
   {
     name: "이윤규",
     position: "Developer",
@@ -28,18 +50,30 @@ const PeoplePage = () => {
     }
   `)
 
-  return people.map(person => (
-    <PersonCard
-      image={getImage(
-        data.allFile.nodes.find(node => node.name === person.name)
-      )}
-      name={person.name}
-      position={person.position}
-      text={person.text}
-      mail={person.mail}
-      githubUsername={person.githubUsername}
-    />
-  ))
+  return (
+    <Layout>
+      {people.map(person => (
+        <PersonCard
+          image={getImage(
+            data.allFile.nodes.find(node => node.name === person.name)
+          )}
+          name={person.name}
+          position={person.position}
+          text={person.text}
+          mail={person.mail}
+          githubUsername={person.githubUsername}
+        />
+      ))}
+    </Layout>
+  )
 }
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  max-width: ${({ theme }) => theme.contentWidth};
+  margin: 4rem auto;
+`
 
 export default PeoplePage
