@@ -10,49 +10,49 @@ const people = [
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
   {
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
   {
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
   {
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
   {
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
   {
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
   {
     name: "이윤규",
     position: "Developer",
     text: "Web developer, SciML enthusiast",
-    mail: "me@luc.li",
+    website: "https://luc.li",
     githubUsername: "rocketll",
   },
 ]
@@ -83,7 +83,7 @@ const PeoplePage = () => {
             name={person.name}
             position={person.position}
             text={person.text}
-            mail={person.mail}
+            website={person.website}
             githubUsername={person.githubUsername}
           />
         ))}
