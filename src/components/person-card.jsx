@@ -59,7 +59,9 @@ const Text = styled.p`
   text-align: center;
 `
 
-const Links = styled.div``
+const Links = styled.div`
+  margin: auto 0 0 0;
+`
 
 const Link = styled.a`
   margin: 0 0.25rem;
