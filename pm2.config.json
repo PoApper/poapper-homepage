@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "poapper-club-homepage",
+      "script": "gatsby",
+      "args": "serve"
+    }
+  ]
+}

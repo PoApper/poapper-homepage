@@ -66,20 +66,27 @@ const Bubbles = ({
   useEffect(() => {
     const bubbles = selectAll(".bubble") // All bubbles
     bubbles.data(nodes)
+    bubbles.select("clipPath > circle").attr("r", d => d.radius)
+    bubbles
+      .select("image")
+      .style("width", d => `${2 * d.radius}px`)
+      .style("height", d => `${2 * d.radius}px`)
+      .attr("x", d => -d.radius)
+      .attr("y", d => -d.radius)
 
     const tooltip = select("#bubble-tooltip") // Tooltip that appears on hover
     tooltip.data(nodes).style("position", "fixed")
 
     // Increase bubble size and display tooltip on mouseover
-    bubbles.on("mouseover", function (d, t) {
+    bubbles.on("mouseover", function (_d, t) {
       t.radius *= config.hoverScale
       select(this)
         .select("clipPath > circle")
         .attr("r", d => d.radius)
       select(this)
         .select("image")
-        .style("width", d => 2 * d.radius)
-        .style("height", d => 2 * d.radius)
+        .style("width", d => `${2 * d.radius}px`)
+        .style("height", d => `${2 * d.radius}px`)
         .attr("x", d => -d.radius)
         .attr("y", d => -d.radius)
       tooltip.html(t.name).style("display", "block")
@@ -87,15 +94,15 @@ const Bubbles = ({
     })
 
     // Decrease bubble size and hide tooltip on mouseout
-    bubbles.on("mouseout", function (d, t) {
+    bubbles.on("mouseout", function (_d, t) {
       t.radius /= config.hoverScale
       select(this)
         .select("clipPath > circle")
         .attr("r", d => d.radius)
       select(this)
         .select("image")
-        .style("width", d => 2 * d.radius)
-        .style("height", d => 2 * d.radius)
+        .style("width", d => `${2 * d.radius}px`)
+        .style("height", d => `${2 * d.radius}px`)
         .attr("x", d => -d.radius)
         .attr("y", d => -d.radius)
       tooltip.style("display", "none")
@@ -103,10 +110,10 @@ const Bubbles = ({
     })
 
     // Move tooltip to mouse position. CSS transform is used for performance.
-    bubbles.on("mousemove", function (d, t) {
+    bubbles.on("mousemove", function (d, _t) {
       tooltip.style(
         "transform",
-        `translate(${d.pageX + 10}px, ${d.pageY + 10}px)`
+        `translate(${d.clientX + 10}px, ${d.clientY + 10}px)`
       )
     })
 
@@ -140,7 +147,7 @@ const Bubbles = ({
   }, [])
 
   return (
-    <div {...props}>
+    <>
       <ScaledSvg
         width={svgWidth}
         height={svgHeight}
@@ -148,6 +155,7 @@ const Bubbles = ({
         preserveAspectRatio="xMidYMid meet"
         scaledWidth={width}
         scaledHeight={height}
+        {...props}
       >
         {nodes.map(node => (
           <a href={node.to} className="bubble">
@@ -169,7 +177,7 @@ const Bubbles = ({
         ))}
       </ScaledSvg>
       <Tooltip id="bubble-tooltip"></Tooltip>
-    </div>
+    </>
   )
 }
 

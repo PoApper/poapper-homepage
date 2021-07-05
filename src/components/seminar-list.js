@@ -4,6 +4,13 @@ import REACT_logo from "../images/seminar/react.png"
 import NODEJS_logo from "../images/seminar/nodejs.png"
 import EXPRESS_logo from "../images/seminar/express.png"
 import MYSQL_logo from "../images/seminar/mysql.png"
+import DART_logo from "../images/seminar/dart.png"
+import FLUTTER_logo from "../images/seminar/flutter.png"
+import PHOTOSHOP_logo from "../images/seminar/photoshop.png"
+import ILLUSTRATOR_logo from "../images/seminar/illustrator.png"
+import NESTJS_logo from "../images/seminar/nestjs.png"
+import TYPEORM_logo from "../images/seminar/typeorm.png"
+import JEST_logo from "../images/seminar/jest.png"
 
 export const regularSeminarList = [
   {
@@ -14,22 +21,26 @@ export const regularSeminarList = [
   {
     name: "BackEnd Seminar",
     meta: "PoApper/backEnd-seminar",
+    github_link: "https://github.com/PoApper/backend-seminar",
     images: [NODEJS_logo, EXPRESS_logo, MYSQL_logo],
   },
   {
     name: "Mobile Seminar",
     meta: "PoApper/frontEnd-seminar",
-    images: [],
+    github_link: "https://github.com/PoApper/flutter_seminar",
+
+    images: [DART_logo, FLUTTER_logo],
   },
   {
     name: "Design Seminar",
     meta: "PoApper/frontEnd-seminar",
-    images: [],
+    images: [PHOTOSHOP_logo, ILLUSTRATOR_logo],
   },
   {
     name: "NestJS Seminar",
     meta: "PoApper/frontEnd-seminar",
-    images: [],
+    github_link: "https://github.com/PoApper/nestjs-seminar",
+    images: [NESTJS_logo, TYPEORM_logo, JEST_logo],
   },
 ]
 
