@@ -9,15 +9,15 @@ import PersonCard from "../components/person-card"
 const people = [
   {
     name: "이윤규",
-    position: "Developer",
-    text: "Web developer, SciML enthusiast",
+    tags: ["developer", "sciml", "webdev"],
+    text: "POSTECH 21",
     website: "https://luc.li",
     githubUsername: "rocketll",
     priority: 39,
   },
   {
     name: "하석윤",
-    position: "Developer",
+    tags: ["tag", "taag", "taaag"],
     text: "Some guy",
     website: "https://google.com",
     githubUsername: "BlueHorn07",
@@ -25,15 +25,15 @@ const people = [
   },
   {
     name: "유병호",
-    position: "Developer",
-    text: "Placeholder text",
+    tags: ["tag", "taag", "taaag"],
+    text: "Placeholder",
     website: "https://google.com",
     githubUsername: "4-Rem",
     priority: 2391,
   },
   {
     name: "최정원",
-    position: "Developer",
+    tags: ["tag", "taag", "taaag"],
     text: "Blah blah blah",
     website: "https://google.com",
     githubUsername: "jjeongone",
@@ -41,7 +41,7 @@ const people = [
   },
   {
     name: "노연서",
-    position: "Developer",
+    tags: ["tag", "taag", "taaag"],
     text: "Lorem ipsum",
     website: "https://google.com",
     githubUsername: "Yeonseo0419",
@@ -75,7 +75,7 @@ const PeoplePage = () => {
                 data.allFile.nodes.find(node => node.name === person.name)
               )}
               name={person.name}
-              position={person.position}
+              tags={person.tags}
               text={person.text}
               website={person.website}
               githubUsername={person.githubUsername}
