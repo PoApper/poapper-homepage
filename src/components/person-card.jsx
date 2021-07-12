@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 const PersonCard = ({
   image,
   name,
-  position,
+  tags,
   text,
   website,
   githubUsername,
@@ -15,7 +15,11 @@ const PersonCard = ({
   <Container {...props}>
     <Image image={image} alt={name}></Image>
     <Name>{name}</Name>
-    <Position>{position}</Position>
+    <Tags>
+      {tags.map(tag => (
+        <span>#{tag}</span>
+      ))}
+    </Tags>
     <Text>{text}</Text>
     <Links>
       <Link href={website}>
@@ -48,13 +52,17 @@ const Name = styled.h4`
   font-size: 1.125em;
 `
 
-const Position = styled.span`
+const Tags = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
   color: ${({ theme }) => theme.foreground.sub};
   font-size: 0.9em;
 `
 
 const Text = styled.p`
-  margin: 1.75rem 0;
+  margin: 0 0 1rem 0;
   font-size: 0.9em;
   text-align: center;
 `
