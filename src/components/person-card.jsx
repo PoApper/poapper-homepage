@@ -17,7 +17,7 @@ const PersonCard = ({
     <Name>{name}</Name>
     <Tags>
       {tags.map(tag => (
-        <span>#{tag}</span>
+        <Tag>#{tag}</Tag>
       ))}
     </Tags>
     <Text>{text}</Text>
@@ -54,9 +54,14 @@ const Name = styled.h4`
 
 const Tags = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 1rem 0;
+`
+
+const Tag = styled.span`
+  margin: 0 0.15rem;
   color: ${({ theme }) => theme.foreground.sub};
   font-size: 0.9em;
 `
