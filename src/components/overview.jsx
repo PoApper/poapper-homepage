@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import GitLog from "./git-log"
+
 const Overview = () => (
   <Container>
     <OverviewWrapper>
@@ -14,7 +16,7 @@ const Overview = () => (
       </OverviewText>
       <NumberStackGrid data={numberStackData} />
     </OverviewWrapper>
-    <GitView>{gitData}</GitView>
+    <GitLog />
   </Container>
 )
 
@@ -85,13 +87,12 @@ const Container = styled.div`
   }
 `
 
-const gitViewBreakpoint = "50rem"
-
 const OverviewWrapper = styled.div`
   width: 50%;
   margin: 2rem 0;
 
-  @media only screen and (max-width: ${gitViewBreakpoint}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoint.gitLog}) {
     width: auto;
   }
 `
@@ -100,7 +101,8 @@ const OverviewText = styled.p`
   font-weight: 700;
   font-size: 1.5rem;
 
-  @media only screen and (max-width: ${gitViewBreakpoint}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoint.gitLog}) {
     width: auto;
   }
 `
@@ -108,39 +110,5 @@ const OverviewText = styled.p`
 const OverviewTextSub = styled.span`
   color: ${({ theme }) => theme.foreground.sub};
 `
-
-const GitView = styled.pre`
-  flex: 1 0;
-  margin: 0 0 0 1rem;
-  padding: 2rem 1rem 2rem 2rem;
-  color: #dddddd;
-  font-size: 0.8em;
-  background: #000000;
-  border-radius: 1rem;
-
-  @media only screen and (max-width: ${gitViewBreakpoint}) {
-    display: none;
-  }
-`
-
-const gitData = `poapper@postech ~ $ git log HEAD~3..HEAD
-
-commit 1a05a223540d3b5cea6f13e5cd3ae7420754e832
-Author: Lucas Yunkyu Lee <me@luc.li>
-Date:   Sun Jun 20 03:57:39 2021 +0900
-
-        fix: update build results
-
-commit 82f789b25fce77dcb7611f8de1600ac0a989349c
-Author: Lucas Yunkyu Lee <me@luc.li>
-Date:   Sun Jun 20 03:55:39 2021 +0900
-
-        feat: add header and form design
-
-commit 414c25ffd4a6762a968280b5fd752789b59c2c6b
-Author: Lucas Yunkyu Lee <me@luc.li>
-Date:   Sun Jun 20 03:18:56 2021 +0900
-
-        feat: implement basic form`
 
 export default Overview
