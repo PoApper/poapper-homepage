@@ -27,7 +27,7 @@ const HackathonCardGrid = () => (
         </HackathonCardBody>
         <div style={{ margin: "0px 0px 10px 0px", textAlign: "center" }}>
           <StyledExternalLinkButton href="/">
-            >> 포애퍼 지원하기 &lt;&lt;
+            &gt;&gt; 포애퍼 지원하기 &lt;&lt;
           </StyledExternalLinkButton>
         </div>
       </HackathonTextCard>
@@ -58,20 +58,20 @@ const HackathonCardGrid = () => (
 
 const HackathonSpringImageCard = styled.div`
   height: 300px;
+  background-image: url("${hackathon_spring}");
+  background-size: cover;
   border: 1px solid lightgray;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 2px 0px 0px 0px lightgray;
-  background-image: url("${hackathon_spring}");
-  background-size: cover;
 `
 
 const HackathonFallImageCard = styled.div`
   height: 300px;
+  background-image: url("${hackathon_fall}");
+  background-size: cover;
   border: 1px solid lightgray;
   border-radius: 10px 10px 0px 0px;
   box-shadow: 2px 0px 0px 0px lightgray;
-  background-image: url("${hackathon_fall}");
-  background-size: cover;
 `
 
 const HackathonTextCard = styled.div`
@@ -90,18 +90,22 @@ const HackathonInformation = styled.div`
   grid-auto-columns: minmax(200px, auto);
   grid-gap: 13px;
   grid-template-columns: repeat(2, 1fr);
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `
 
 const HackathonCardTitle = styled.h3`
-  padding: 0px;
+  padding: 0;
 `
 
 const HackathonCardBody = styled.p`
-  padding: 0px;
+  padding: 0;
 `
 
 const StyledExternalLinkButton = styled(ExternalLinkButton)`
-  margin: 0 0.25rem 0px 0px;
+  margin: 0 0.25rem 0 0;
   background-color: #fcb6eb;
 `
 
