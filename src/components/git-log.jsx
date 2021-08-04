@@ -18,9 +18,9 @@ const GitLog = () => {
       .then(data =>
         data
           .filter(event => event.type === "PushEvent")
-          .slice(0, 3)
+          .slice(0, 4)
           .reduce((acc, val) => [...acc, ...val.payload.commits], [])
-          .slice(0, 3)
+          .slice(0, 4)
       )
       .then(commits =>
         commits
@@ -34,7 +34,7 @@ Author: ${commit.author.name} <${commit.author.email}>
           )
           .join("\n\n")
       )
-      .then(result => "poapper@postech ~ $ git log HEAD~3..HEAD\n\n" + result)
+      .then(result => "poapper@postech ~ $ git log HEAD~4..HEAD\n\n" + result)
       .then(result => {
         setGitData(result)
       })

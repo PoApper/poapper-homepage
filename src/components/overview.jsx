@@ -4,7 +4,7 @@ import styled from "styled-components"
 import GitLog from "./git-log"
 
 const Overview = () => (
-  <Container>
+  <Container style={{ alignItems: "flex-start" }}>
     <OverviewWrapper>
       <OverviewText>
         PoApper는 함께 최신 개발 기술을 익히고 공유하며 성장하는 개발
@@ -89,10 +89,10 @@ const Container = styled.div`
 
 const OverviewWrapper = styled.div`
   width: 50%;
-  margin: 2rem 0;
+  margin: 0;
 
   @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoint.gitLog}) {
+  theme.breakpoint.gitLog}) {
     width: auto;
   }
 `
@@ -102,7 +102,7 @@ const OverviewText = styled.p`
   font-size: 1.5rem;
 
   @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoint.gitLog}) {
+  theme.breakpoint.gitLog}) {
     width: auto;
   }
 `
