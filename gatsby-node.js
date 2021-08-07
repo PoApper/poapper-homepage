@@ -13,17 +13,20 @@ exports.sourceNodes = async ({
   const result = await octokit.request("GET /orgs/{org}/public_members", {
     org: "poapper",
   })
+  const members = result.data
 
-  result.data.map(async member =>
+  for (const member of members) {
+    member.name = (
+      await octokit.request("GET /users/{username}", {
+        username: member.login,
+      })
+    ).data.name
+
     createNode({
       id: member.node_id,
       avatarUrl: member.avatar_url,
       url: member.url,
-      name: await (
-        await octokit.request("GET /users/{username}", {
-          username: member.login,
-        })
-      ).data.name,
+      name: member.name,
       login: member.login,
       parent: null,
       children: [],
@@ -32,5 +35,5 @@ exports.sourceNodes = async ({
         contentDigest: createContentDigest(member),
       },
     })
-  )
+  }
 }
