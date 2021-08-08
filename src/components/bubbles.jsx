@@ -35,7 +35,6 @@ const Bubbles = ({
           avatarUrl
           login
           url
-          name
         }
       }
     }
