@@ -19,8 +19,8 @@ const IndexPage = () => (
   <>
     <Hero />
     <Overview />
-    <PoApperIncBanner />
     <ProjectsAndActivities />
+    <PoApperIncBanner />
   </>
 )
 

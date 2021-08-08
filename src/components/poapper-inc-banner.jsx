@@ -13,6 +13,11 @@ const PoApperIncBanner = () => {
           </a>
         </div>
         <DescTitle>2020년 9월, 법인 포애퍼 설립</DescTitle>
+        <DescText>
+          동아리 포애퍼에서 출발한 포애퍼 법인은
+          <br />
+          동아리 외주, 프로젝트 사업화 측면에서 협력하고 있습니다.
+        </DescText>
       </BannerWrapper>
     </Container>
   )
@@ -39,8 +44,9 @@ const BannerWrapper = styled.div`
   justify-content: center;
   justify-items: center;
   width: 100%;
-  height: 10rem;
+  height: 13rem;
   background: linear-gradient(30deg, #dc96ff, #fc9656);
+  border-radius: 1rem;
 `
 
 const Icon = styled.img`
@@ -57,4 +63,8 @@ const DescTitle = styled.h3`
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     font-size: 1.2rem;
   }
+`
+
+const DescText = styled.p`
+  text-align: center;
 `
