@@ -85,7 +85,7 @@ const Project = styled.div`
 
 const Container = styled.div`
   max-width: ${({ theme }) => theme.contentWidth};
-  margin: 10rem auto;
+  margin: 6rem auto;
 `
 
 export default ProjectsAndActivities

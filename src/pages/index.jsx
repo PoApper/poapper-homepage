@@ -12,6 +12,7 @@ import React from "react"
 import Hero from "../components/hero"
 import Overview from "../components/overview"
 import ProjectsAndActivities from "../components/projects-and-activities"
+import PoApperIncBanner from "../components/poapper-inc-banner"
 
 // Uses React functional components
 const IndexPage = () => (
@@ -19,6 +20,7 @@ const IndexPage = () => (
     <Hero />
     <Overview />
     <ProjectsAndActivities />
+    <PoApperIncBanner />
   </>
 )
 
