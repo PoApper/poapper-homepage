@@ -8,7 +8,7 @@ exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
 }) => {
-  const result = await fetch("https://github.club.poapper.com/member")
+  const result = await fetch(`${process.env.GATSBY_API_URL}/member`)
   const members = await result.json()
 
   for (const member of members) {

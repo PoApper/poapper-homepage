@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 
-const gitLogTemplate = `commit 1a05a223540d3b5cea6f13e5cd3ae7420754e832
-Author: Lucas Yunkyu Lee <me@luc.li>
-Date:   Sun Jun 20 03:57:39 2021 +0900
-
-        fix: update build results`
-
 const GitLog = () => {
   const [gitData, setGitData] = useState(null)
 
   useEffect(() => {
-    fetch("https://github.club.poapper.com/event", {})
+    fetch(`${process.env.GATSBY_API_URL}/event`, {})
       // Parse response JSON
       .then(res => res.json())
       // Reduce 3 commits of 3 latest pushes
