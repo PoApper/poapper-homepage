@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 import { FiDownload } from "react-icons/fi"
 import { AiOutlineSearch } from "react-icons/ai"
@@ -30,7 +30,8 @@ const SeminarTimeline = () => (
         <GoChevronDown />
       </Year>
       <Search>
-        | &nbsp;
+        <SearchInput />
+        &nbsp; | &nbsp;
         <AiOutlineSearch />
       </Search>
       <Sort>
@@ -39,11 +40,11 @@ const SeminarTimeline = () => (
       </Sort>
     </Tool>
     <MeetingSeminarCard seminar={meetingSeminarList[0]} />
-    <hr class="hrcss"></hr>
+    <hr className="hrcss" />
     <MeetingSeminarCard seminar={meetingSeminarList[1]} />
-    <hr class="hrcss"></hr>
+    <hr className="hrcss" />
     <MeetingSeminarCard seminar={meetingSeminarList[2]} />
-    <hr class="hrcss"></hr>
+    <hr className="hrcss" />
     <MeetingSeminarCard seminar={meetingSeminarList[3]} />
   </MeetingSeminar>
 )
@@ -57,7 +58,6 @@ const Tool = styled.div`
 `
 
 const Year = styled.div`
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,20 +69,23 @@ const Year = styled.div`
 `
 
 const Search = styled.div`
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 12rem;
+  width: 14rem;
   margin-right: 1rem;
   padding: 0.3rem 0.6rem;
   border: 1.5px solid lightgrey;
   border-radius: 5px;
 `
 
-const Sort = styled.div`
+const SearchInput = styled.input`
+  flex: 1;
+  border: none;
+`
 
+const Sort = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -108,8 +111,7 @@ const Head = styled.div`
 `
 
 const Title = styled.h3`
-  margin: 0;
-  margin-right: 0.8rem;
+  margin: 0 0.8rem 0 0;
 `
 const Info = styled.div`
   display: flex;
