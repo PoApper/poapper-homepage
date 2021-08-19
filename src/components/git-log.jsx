@@ -5,7 +5,7 @@ const GitLog = () => {
   const [gitData, setGitData] = useState(null)
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_URL}/event`, {})
+    fetch(`${process.env.GATSBY_API_URL}/github/event`, {})
       // Parse response JSON
       .then(res => res.json())
       // Reduce 3 commits of 3 latest pushes
