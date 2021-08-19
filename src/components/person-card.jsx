@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { FaHome, FaGithub } from "react-icons/fa"
+import { FaGithub, FaHome } from "react-icons/fa"
 
 const PersonCard = ({
   image,
@@ -14,16 +14,15 @@ const PersonCard = ({
   <Container {...props}>
     <Image src={image} alt={name} />
     <Name>{name}</Name>
-    <Tags>
-      {tags.map(tag => (
-        <Tag>#{tag}</Tag>
-      ))}
-    </Tags>
+    <Tags>{tags.map(tag => (tag ? <Tag>#{tag}</Tag> : null))}</Tags>
     <Text>{text}</Text>
     <Links>
-      <Link href={website}>
-        <FaHome size="1.75rem" />
-      </Link>
+      {website ? (
+        <Link href={website}>
+          <FaHome size="1.75rem" />
+        </Link>
+      ) : null}
+
       <Link href={`https://github.com/${githubUsername}`}>
         <FaGithub size="1.75rem" />
       </Link>
