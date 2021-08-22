@@ -68,7 +68,7 @@ const activity_contents = [
     category: "Develop Festival",
     description:
       "포애퍼는 매년 봄과 가을에 교내 해커톤을 개최하고 있습니다. 자유롭게 아이디어를 제시하고 개발 및 검증하며 마음껏 창의성을 발휘하는 포애퍼의 🎉Develop Festival🎊입니다. 좋은 아이디어는 포애퍼 법인의 도움을 받아 사업화 하거나, 포애퍼의 후속 프로젝트로 발전시킵니다.",
-    links: [{ to: "/hackaton", text: "Open" }],
+    links: [{ to: "/hackathon", text: "Open" }],
     img: "https://source.unsplash.com/random/600x600",
   },
 ]
