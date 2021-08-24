@@ -6,6 +6,16 @@ import HackathonCardGrid from "../components/hackathon_information_card"
 import HackathonQuestionAndAnswer from "../components/hackathon_question_and_answer"
 import HackathonRegister from "../components/hackathon_register"
 
+const is_hackathon = false
+
+const isHackathonPeriod = is_hackathon => {
+  if (is_hackathon === true) {
+    return <HackathonRegister />
+  } else {
+    return <p>해커톤 참가신청 기간이 아닙니다.</p>
+  }
+}
+
 const HackathonPage = () => (
   <Container>
     {/* <head> management by react-helmet  */}
@@ -47,8 +57,7 @@ const HackathonPage = () => (
 
     <div style={{ margin: "3rem 0" }}>
       <h2>해커톤 참가신청</h2>
-      {/*<p>해커톤 참가신청 기간이 아닙니다.</p>*/}
-      <HackathonRegister />
+      {isHackathonPeriod(is_hackathon)}
     </div>
 
     <div style={{ margin: "3rem 0", clear: "both" }}>
@@ -72,7 +81,7 @@ const Title = styled.h1`
   font-size: 2.75em;
   letter-spacing: -0.05em;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 90%);
+  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 40%);
   -webkit-background-clip: text;
 `
 

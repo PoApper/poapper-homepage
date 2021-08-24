@@ -38,8 +38,8 @@ const HackathonQuestionAndAnswer = () => (
         팀을 구성해 드립니다. 또한, 개인팀으로도 해커톤 참여가 가능합니다!
       </LeftBubble>
       <LeftBubbleEnd>
-        포애퍼 맨투맨과 스티커 등 다양한 참가 사은품과 푸짐한 상품이 준비되어
-        있으니 많은 관심 부탁드려요~!{" "}
+        맨투맨과 스티커 등 다양한 참가 사은품과 푸짐한 상품이 준비되어 있으니
+        많은 관심 부탁드려요~!{" "}
         <span role="img" aria-label="smile">
           {" "}
           😊
@@ -60,6 +60,10 @@ const LeftBubbleGroup = styled.div`
   grid-auto-columns: 400px;
   grid-gap: 5px;
   justify-content: left;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    grid-auto-columns: 250px;
+  }
 `
 
 const LeftBubble = styled.div`
@@ -79,6 +83,10 @@ const RightBubbleGroup = styled.div`
   grid-auto-columns: 400px;
   grid-gap: 5px;
   justify-content: right;
+
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
+    grid-auto-columns: 250px;
+  }
 `
 
 const RightBubble = styled.div`
