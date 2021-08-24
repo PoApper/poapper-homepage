@@ -27,6 +27,7 @@ const PeoplePage = () => {
               text={person.text}
               website={person.website}
               githubUsername={person.github}
+              badges={person.badge.split(",")}
             />
           ))}
       </Layout>
