@@ -1,10 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-import hackathon_spring from "../images/hackathon/HackathonSpring.png"
-import hackathon_fall from "../images/hackathon/HackathonFall.png"
-
-import { ExternalLinkButton } from "./links"
+import hackathon_spring from "../../images/hackathon/HackathonSpring.png"
+import hackathon_fall from "../../images/hackathon/HackathonFall.png"
+import { ExternalLinkButton } from "../links"
 
 const HackathonCardGrid = () => (
   <HackathonInformation>

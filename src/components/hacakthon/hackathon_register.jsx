@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import HackathonPoster from "../images/hackathon/HackathonPoster.jpg"
+import HackathonPoster from "../../images/hackathon/HackathonPoster.jpg"
 
 const HackathonRegister = () => (
   <HackathonRegisterBody>

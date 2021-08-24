@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { ExternalLinkButton } from "./links"
+import { ExternalLinkButton } from "../links"
 
 const ContentCard = ({ name, category, img, description, links }) => (
   <ContentCardContainer>

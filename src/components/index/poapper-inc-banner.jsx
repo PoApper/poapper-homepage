@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import PoApperIncLogo from "../images/poapper-inc-logo.svg"
+import PoApperIncLogo from "../../images/poapper-inc-logo.svg"
 
 const PoApperIncBanner = () => {
   return (

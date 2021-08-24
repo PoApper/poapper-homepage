@@ -2,9 +2,9 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
-import HackathonCardGrid from "../components/hackathon_information_card"
-import HackathonQuestionAndAnswer from "../components/hackathon_question_and_answer"
-import HackathonRegister from "../components/hackathon_register"
+import HackathonCardGrid from "../components/hacakthon/hackathon_information_card"
+import HackathonQuestionAndAnswer from "../components/hacakthon/hackathon_question_and_answer"
+import HackathonRegister from "../components/hacakthon/hackathon_register"
 
 const is_hackathon = false
 

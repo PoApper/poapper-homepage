@@ -9,10 +9,10 @@
 // ES6 import syntax
 import React from "react"
 
-import Hero from "../components/hero"
-import Overview from "../components/overview"
-import ProjectsAndActivities from "../components/projects-and-activities"
-import PoApperIncBanner from "../components/poapper-inc-banner"
+import Hero from "../components/index/hero"
+import Overview from "../components/index/overview"
+import ProjectsAndActivities from "../components/index/projects-and-activities"
+import PoApperIncBanner from "../components/index/poapper-inc-banner"
 
 // Uses React functional components
 const IndexPage = () => (
