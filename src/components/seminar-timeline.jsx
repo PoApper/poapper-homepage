@@ -6,19 +6,28 @@ import Select from 'react-select'
 
 import { meetingSeminarList } from "./seminar-list"
 
-const MeetingSeminarCard = props => (
-  <SeminarCard>
+const MeetingSeminarCard = ({
+  cardTitle,
+  date,
+  datepriority,
+  author,
+  githubId,
+  cardDetailedText,
+  ...props
+}) => (
+  <SeminarCard {...props}>
     <Head>
-      <Title>{props.seminar.cardTitle}</Title>
+      <Title>{cardTitle}</Title>
       <FiDownload size="1rem" />
     </Head>
 
     <Info>
-      <Date>{props.seminar.title}</Date>|
-      <Presenter>{props.seminar.author} <Link href={props.seminar.author_github}>(@{props.seminar.github_id})</Link></Presenter>
+      <Date>{date}</Date>|
+      <Presenter>{author} <Link href={`https://github.com/${githubId}`}>(@{githubId})</Link></Presenter>
     </Info>
 
-    <Content>{props.seminar.cardDetailedText}</Content>
+    <Content>{cardDetailedText}</Content>
+    <hr className="hrcss" />
   </SeminarCard>
 )
 
@@ -35,13 +44,32 @@ const SeminarTimeline = () => (
       </Search>
         <DropdownSort />
     </Tool>
-    <MeetingSeminarCard seminar={meetingSeminarList[0]} />
-    <hr className="hrcss" />
-    <MeetingSeminarCard seminar={meetingSeminarList[1]} />
-    <hr className="hrcss" />
-    <MeetingSeminarCard seminar={meetingSeminarList[2]} />
-    <hr className="hrcss" />
-    <MeetingSeminarCard seminar={meetingSeminarList[3]} />
+    {meetingSeminarList
+      /*날짜 오름차순
+      .sort(function(a,b) {
+        return a.datepriority < b.datepriority ? -1 : a.datepriority > b.datepriority ? 1: 0;
+      })
+      */
+      /*날짜 내림차순
+      .sort(function(a,b) {
+        return a.datepriority > b.datepriority ? -1 : a.datepriority < b.datepriority ? 1: 0;
+      })
+      */
+      /*ABC순
+      .sort(function(a,b) {
+        return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
+      })
+      */
+      .map(seminar => (
+        <MeetingSeminarCard
+        cardTitle={seminar.cardTitle}
+        date={seminar.date}
+        author={seminar.author}
+        githubId={seminar.githubId}
+        cardDetailedText={seminar.cardDetailedText}
+        />
+      ))
+    }
   </MeetingSeminar>
 )
 
@@ -52,29 +80,58 @@ const yearoptions = [
 ]
 
 const DropdownYear = () => (
-  <div style={{width:'120px'}}>
+  <div style={{width:'110px'}}>
     <Select 
       options={yearoptions}
       isSearchable={false}
       defaultValue={yearoptions[0]}
+      styles={customStyles}
     />
   </div>
 )
 
 const sortoptions = [
-  { value: 'date ascending', label: '날짜 오름차순' },
-  { value: 'date descending', label: '날짜 내림차순' },
+  { value: 'dateAscending', label: '날짜 오름차순' },
+  { value: 'dateDescending', label: '날짜 내림차순' },
   { value: 'alphabetical', label: 'ABC순' }
 ]
 
 const DropdownSort = () => (
-  <div style={{width:'160px'}}>
+  <div style={{width:'140px'}}>
   <Select 
     options={sortoptions}
     isSearchable={false}
-    defaultValue={sortoptions[0]}/>
+    defaultValue={sortoptions[0]}
+    styles={customStyles}
+  />
   </div>
 )
+
+const customStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    background: '#fff',
+    border: "1.5px solid lightgrey",
+    borderRadius: '5px',
+    minHeight: 33.67,
+    height: 33.67,
+    boxShadow: 'none'
+  }),
+
+  valueContainer: (provided, state) => ({
+    ...provided,
+    height: '30px',
+  }),
+
+  indicatorSeparator: state => ({
+    display: 'none'
+  }),
+  indicatorsContainer: (provided, state) => ({
+    ...provided,
+    height: '30px',
+    padding: '0'
+  }),
+};
 
 const Tool = styled.div`
   display: flex;
@@ -83,7 +140,6 @@ const Tool = styled.div`
   align-items: center;
   justify-content: flex-start;
   font-size: 0.9rem;    
-  }
 `
 const Year = styled.div`
  margin: 0 1rem 0 0;
@@ -112,7 +168,7 @@ const MeetingSeminar = styled.div`
 `
 
 const SeminarCard = styled.div`
-  margin: 1.5rem 1rem;
+  margin: 1.5rem 1rem 0rem 1rem;
 `
 
 const Head = styled.div`
@@ -150,7 +206,7 @@ const Link = styled.a`
 `
 
 const Content = styled.div`
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   color: #969696;
   font-size: 0.9rem;
 `
