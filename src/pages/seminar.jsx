@@ -64,7 +64,7 @@ const Title = styled.h1`
   font-size: 2.75em;
   letter-spacing: -0.05em;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 90%);
+  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 30%);
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -webkit-background-clip: text;
   background-clip: text;

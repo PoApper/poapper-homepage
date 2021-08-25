@@ -25,7 +25,7 @@ const PersonCard = ({
   badges,
   ...props
 }) => {
-  const badgeimage = props => {
+  const badge_image = props => {
     switch (props) {
       case "Dart_gold":
         return <Badge src={Dartgold} alt={props} />
@@ -91,7 +91,7 @@ const PersonCard = ({
       <Badges>
         {badges.map(badge => (
           <BadgeWrapper>
-            {badgeimage(badge)}
+            {badge_image(badge)}
             <HoverText>{badge_hover_text(badge)}</HoverText>
           </BadgeWrapper>
         ))}

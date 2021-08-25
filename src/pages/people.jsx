@@ -38,8 +38,11 @@ const PeoplePage = () => {
 const Title = styled.h2`
   max-width: ${({ theme }) => theme.contentWidth};
   margin: 4rem auto;
-  font-size: 1.75em;
-  letter-spacing: -0.0375em;
+  font-size: 2.75em;
+  letter-spacing: -0.05em;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 25%);
+  -webkit-background-clip: text;
 `
 
 const Layout = styled.div`
