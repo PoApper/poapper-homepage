@@ -1,8 +1,19 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 import { FaGithub, FaHome } from "react-icons/fa"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
+
+import Dartgold from "../images/badge/Dart_gold.png"
+import Dart from "../images/badge/Dart.png"
+import Nestgold from "../images/badge/Nest_gold.png"
+import Nest from "../images/badge/Nest.png"
+import Nodejsgold from "../images/badge/Nodejs_gold.png"
+import Nodejs from "../images/badge/Nodejs.png"
+import Photoshopgold from "../images/badge/Photoshop_gold.png"
+import Photoshop from "../images/badge/Photoshop.png"
+import PoApperpre from "../images/badge/PoApper_pre.png"
+import PoAppervice from "../images/badge/PoApper_vice.png"
+import Reactgold from "../images/badge/React_gold.png"
+import React_ from "../images/badge/React.png"
 
 const PersonCard = ({
   image,
@@ -14,61 +25,74 @@ const PersonCard = ({
   badges,
   ...props
 }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allFile(filter: { relativeDirectory: { eq: "badge" } }) {
-        nodes {
-          childImageSharp {
-            gatsbyImageData(width: 200)
-          }
-          name
-        }
-      }
+  const badgeimage = props => {
+    switch (props) {
+      case "Dart_gold":
+        return <Badge src={Dartgold} alt={props} />
+      case "Dart":
+        return <Badge src={Dart} alt={props} />
+      case "Nest_gold":
+        return <Badge src={Nestgold} alt={props} />
+      case "Nest":
+        return <Badge src={Nest} alt={props} />
+      case "Nodejs_gold":
+        return <Badge src={Nodejsgold} alt={props} />
+      case "Nodejs":
+        return <Badge src={Nodejs} alt={props} />
+      case "Photoshop_gold":
+        return <Badge src={Photoshopgold} alt={props} />
+      case "Photoshop":
+        return <Badge src={Photoshop} alt={props} />
+      case "PoApper_pre":
+        return <Badge src={PoApperpre} alt={props} />
+      case "PoApper_vice":
+        return <Badge src={PoAppervice} alt={props} />
+      case "React_gold":
+        return <Badge src={Reactgold} alt={props} />
+      case "React":
+        return <Badge src={React_} alt={props} />
+      default:
+        return null
     }
-  `)
-
+  }
+  const badge_hover_text = props => {
+    switch (props) {
+      case "Dart_gold":
+        return "모바일 세미나 멘토"
+      case "Dart":
+        return "모바일 세미나 수강자"
+      case "Nest_gold":
+        return "NestJS 세미나 멘토"
+      case "Nest":
+        return "NestJS 세미나 수강자"
+      case "Nodejs_gold":
+        return "백엔드 세미나 멘토"
+      case "Nodejs":
+        return "백엔드 세미나 수강자"
+      case "Photoshop_gold":
+        return "디자인 세미나 멘토"
+      case "Photoshop":
+        return "디자인 세미나 수강자"
+      case "PoApper_pre":
+        return "PoApper 회장"
+      case "PoApper_vice":
+        return "PoApper 부회장"
+      case "React_gold":
+        return "프런트 세미나 멘토"
+      case "React":
+        return "프런트 세미나 수강자"
+      default:
+        return null
+    }
+  }
   return (
     <Container {...props}>
       <Image src={image} alt={name} />
       <Badges>
         {badges.map(badge => (
           <BadgeWrapper>
-            <Badge
-              alt={badge}
-              image={getImage(
-                data.allFile.nodes.find(node => node.name === badge)
-              )}
-            />
-            <HoverText>
-              {(() => {
-                switch (badge) {
-                  case "Dart_gold":
-                    return "모바일 세미나 멘토"
-                  case "Dart":
-                    return "모바일 세미나 수강자"
-                  case "Nest_gold":
-                    return "NestJS 세미나 멘토"
-                  case "Nest":
-                    return "NestJS 세미나 수강자"
-                  case "Nodejs_gold":
-                    return "백엔드 세미나 멘토"
-                  case "Nodejs":
-                    return "백엔드 세미나 수강자"
-                  case "Photoshop_gold":
-                    return "디자인 세미나 멘토"
-                  case "Photoshop":
-                    return "디자인 세미나 수강자"
-                  case "PoApper_pre":
-                    return "PoApper 회장"
-                  case "PoApper_vice":
-                    return "PoApper 부회장"
-                  case "React_gold":
-                    return "프런트 세미나 멘토"
-                  default:
-                    return null
-                }
-              })()}
-            </HoverText>
+            {badgeimage(badge)}
+            <HoverText>{badge_hover_text(badge)}</HoverText>
           </BadgeWrapper>
         ))}
       </Badges>
@@ -122,8 +146,8 @@ const Hover = keyframes`
   }
 `
 
-const Badge = styled(GatsbyImage)`
-  width: 1.2rem;
+const Badge = styled.img`
+  width: 1.3rem;
   height: 1.3rem;
   object-fit: contain;
   &:hover {
