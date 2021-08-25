@@ -115,7 +115,10 @@ const MobileButton = styled.button`
 `
 
 const StyledInternalLink = styled(InternalLink)`
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 1.5rem;
+  color: ${({ theme }) => theme.foreground.default};
+  font-weight: 700;
+  font-size: 1.1em;
 
   @media only screen and (max-width: ${({ theme }) => theme.breakpoint.s}) {
     margin: 0 0 0.5rem 0;
