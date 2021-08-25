@@ -16,7 +16,6 @@ const Navbar = () => {
         <Items mobileOpen={mobileOpen}>
           <Logo to="/">
             <Icon src={IconImg} alt="icon" />
-            PoApper
           </Logo>
           <Links mobileOpen={mobileOpen}>
             <StyledInternalLink to="/seminar">Seminar</StyledInternalLink>
@@ -51,8 +50,7 @@ const Nav = styled.nav`
 
 const Icon = styled.img`
   flex: 0 0;
-  width: 2.5rem;
-  height: 2.5rem;
+  height: 3rem;
   margin: 0 0.5rem 0 0;
 `
 
@@ -77,7 +75,7 @@ const Items = styled.div`
 const Logo = styled(Link)`
   display: flex;
   align-items: center;
-  margin: -0.75rem 0;
+  margin: -1rem 0;
   color: ${({ theme }) => theme.foreground.default};
   font-weight: 700;
   font-size: 1.1em;
