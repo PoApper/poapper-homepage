@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
 import PersonCard from "../components/person-card"
@@ -15,6 +16,7 @@ const PeoplePage = () => {
 
   return (
     <>
+      <Helmet lang="en" title="people" />
       <Title>People</Title>
       <Layout>
         {people
@@ -27,6 +29,7 @@ const PeoplePage = () => {
               text={person.text}
               website={person.website}
               githubUsername={person.github}
+              badges={person.badge.split(",")}
             />
           ))}
       </Layout>
@@ -37,8 +40,11 @@ const PeoplePage = () => {
 const Title = styled.h2`
   max-width: ${({ theme }) => theme.contentWidth};
   margin: 4rem auto;
-  font-size: 1.75em;
-  letter-spacing: -0.0375em;
+  font-size: 2.75em;
+  letter-spacing: -0.05em;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(97.75deg, #1602ff 0%, #ff00a8 25%);
+  -webkit-background-clip: text;
 `
 
 const Layout = styled.div`
