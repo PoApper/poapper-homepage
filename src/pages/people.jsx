@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
 import PersonCard from "../components/person-card"
@@ -15,6 +16,7 @@ const PeoplePage = () => {
 
   return (
     <>
+      <Helmet lang="en" title="people" />
       <Title>People</Title>
       <Layout>
         {people

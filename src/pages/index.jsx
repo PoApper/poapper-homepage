@@ -8,6 +8,7 @@
 
 // ES6 import syntax
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Hero from "../components/hero"
 import Overview from "../components/overview"
@@ -17,6 +18,7 @@ import PoApperIncBanner from "../components/poapper-inc-banner"
 // Uses React functional components
 const IndexPage = () => (
   <>
+    <Helmet lang="en" title="PoApper" />
     <Hero />
     <Overview />
     <ProjectsAndActivities />
