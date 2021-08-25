@@ -175,7 +175,7 @@ const HoverText = styled.div`
   font-size: 12px;
   text-align: center;
   word-break: keep-all;
-  background-color: gray;
+  background-color: rgba(80, 80, 80, 0.8);
   border-radius: 0.7rem;
 `
 
