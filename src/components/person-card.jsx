@@ -32,42 +32,44 @@ const PersonCard = ({
       <Image src={image} alt={name} />
       <Badges>
         {badges.map(badge => (
-          <Badge_wrapper>
+          <BadgeWrapper>
             <Badge
               alt={badge}
               image={getImage(
                 data.allFile.nodes.find(node => node.name === badge)
               )}
-            ></Badge>
-            {(() => {
-              switch (badge) {
-                case "Dart_gold":
-                  return <Hover_Text>모바일 세미나 멘토</Hover_Text>
-                case "Dart":
-                  return <Hover_Text>모바일 세미나 수강자</Hover_Text>
-                case "Nest_gold":
-                  return <Hover_Text>NestJS 세미나 멘토</Hover_Text>
-                case "Nest":
-                  return <Hover_Text>NestJS 세미나 수강자</Hover_Text>
-                case "Nodejs_gold":
-                  return <Hover_Text>백엔드 세미나 멘토</Hover_Text>
-                case "Nodejs":
-                  return <Hover_Text>백엔드 세미나 수강자</Hover_Text>
-                case "Photoshop_gold":
-                  return <Hover_Text>디자인 세미나 멘토</Hover_Text>
-                case "Photoshop":
-                  return <Hover_Text>디자인 세미나 수강자</Hover_Text>
-                case "PoApper_pre":
-                  return <Hover_Text>PoApper 회장</Hover_Text>
-                case "PoApper_vice":
-                  return <Hover_Text>PoApper 부회장</Hover_Text>
-                case "React_gold":
-                  return <Hover_Text>프런트 세미나 멘토</Hover_Text>
-                default:
-                  return null
-              }
-            })()}
-          </Badge_wrapper>
+            />
+            <HoverText>
+              {(() => {
+                switch (badge) {
+                  case "Dart_gold":
+                    return "모바일 세미나 멘토"
+                  case "Dart":
+                    return "모바일 세미나 수강자"
+                  case "Nest_gold":
+                    return "NestJS 세미나 멘토"
+                  case "Nest":
+                    return "NestJS 세미나 수강자"
+                  case "Nodejs_gold":
+                    return "백엔드 세미나 멘토"
+                  case "Nodejs":
+                    return "백엔드 세미나 수강자"
+                  case "Photoshop_gold":
+                    return "디자인 세미나 멘토"
+                  case "Photoshop":
+                    return "디자인 세미나 수강자"
+                  case "PoApper_pre":
+                    return "PoApper 회장"
+                  case "PoApper_vice":
+                    return "PoApper 부회장"
+                  case "React_gold":
+                    return "프런트 세미나 멘토"
+                  default:
+                    return null
+                }
+              })()}
+            </HoverText>
+          </BadgeWrapper>
         ))}
       </Badges>
       <Name>{name}</Name>
@@ -106,7 +108,7 @@ const Badges = styled.div`
   margin-top: 20px;
 `
 
-const Badge_wrapper = styled.div`
+const BadgeWrapper = styled.div`
   position: relative;
   display: flex;
   padding: 0 0.15rem;
@@ -135,7 +137,7 @@ const Badge = styled(GatsbyImage)`
   }
 `
 
-const Hover_Text = styled.div`
+const HoverText = styled.div`
   position: absolute;
   bottom: 90%;
   left: 50%;
