@@ -2,18 +2,18 @@ import React from "react"
 import styled, { keyframes } from "styled-components"
 import { FaGithub, FaHome } from "react-icons/fa"
 
-import Dartgold from "../images/badge/Dart_gold.png"
-import Dart from "../images/badge/Dart.png"
-import Nestgold from "../images/badge/Nest_gold.png"
-import Nest from "../images/badge/Nest.png"
-import Nodejsgold from "../images/badge/Nodejs_gold.png"
-import Nodejs from "../images/badge/Nodejs.png"
-import Photoshopgold from "../images/badge/Photoshop_gold.png"
-import Photoshop from "../images/badge/Photoshop.png"
-import PoApperpre from "../images/badge/PoApper_pre.png"
-import PoAppervice from "../images/badge/PoApper_vice.png"
-import Reactgold from "../images/badge/React_gold.png"
-import React_ from "../images/badge/React.png"
+import Dartgold from "../../images/badge/Dart_gold.png"
+import Dart from "../../images/badge/Dart.png"
+import Nestgold from "../../images/badge/Nest_gold.png"
+import Nest from "../../images/badge/Nest.png"
+import Nodejsgold from "../../images/badge/Nodejs_gold.png"
+import Nodejs from "../../images/badge/Nodejs.png"
+import Photoshopgold from "../../images/badge/Photoshop_gold.png"
+import Photoshop from "../../images/badge/Photoshop.png"
+import PoApperpre from "../../images/badge/PoApper_pre.png"
+import PoAppervice from "../../images/badge/PoApper_vice.png"
+import Reactgold from "../../images/badge/React_gold.png"
+import React_ from "../../images/badge/React.png"
 
 const PersonCard = ({
   image,
@@ -129,7 +129,8 @@ const Image = styled.img`
 const Badges = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  height: 1.5rem;
+  margin-top: 16px;
 `
 
 const BadgeWrapper = styled.div`
@@ -180,7 +181,7 @@ const HoverText = styled.div`
 `
 
 const Name = styled.h4`
-  margin: 1rem 0 0 0;
+  margin: 4px 0 0 0;
   font-weight: 700;
   font-size: 1.125em;
 `
@@ -190,6 +191,7 @@ const Tags = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 1.8rem;
   margin: 1rem 0;
 `
 
