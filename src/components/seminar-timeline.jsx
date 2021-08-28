@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { FiDownload } from "react-icons/fi"
 import { AiOutlineSearch } from "react-icons/ai"
-import Select from 'react-select'
+import Select from "react-select"
 
 import { meetingSeminarList } from "./seminar-list"
 
@@ -23,7 +23,10 @@ const MeetingSeminarCard = ({
 
     <Info>
       <Date>{date}</Date>|
-      <Presenter>{author} <Link href={`https://github.com/${githubId}`}>(@{githubId})</Link></Presenter>
+      <Presenter>
+        {author}{" "}
+        <Link href={`https://github.com/${githubId}`}>(@{githubId})</Link>
+      </Presenter>
     </Info>
 
     <Content>{cardDetailedText}</Content>
@@ -31,116 +34,123 @@ const MeetingSeminarCard = ({
   </SeminarCard>
 )
 
-const SeminarTimeline = () => (
-  <MeetingSeminar>
-    <Tool>
-      <Year>
-        <DropdownYear/>
-      </Year>
-      <Search>
-        <SearchInput />
-        &nbsp; | &nbsp;
-        <AiOutlineSearch />
-      </Search>
-        <DropdownSort />
-    </Tool>
-    {meetingSeminarList
-      /*날짜 오름차순
-      .sort(function(a,b) {
-        return a.datepriority < b.datepriority ? -1 : a.datepriority > b.datepriority ? 1: 0;
-      })
-      */
-      /*날짜 내림차순
-      .sort(function(a,b) {
-        return a.datepriority > b.datepriority ? -1 : a.datepriority < b.datepriority ? 1: 0;
-      })
-      */
-      /*ABC순
-      .sort(function(a,b) {
-        return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
-      })
-      */
-      .map(seminar => (
-        <MeetingSeminarCard
-        cardTitle={seminar.cardTitle}
-        date={seminar.date}
-        author={seminar.author}
-        githubId={seminar.githubId}
-        cardDetailedText={seminar.cardDetailedText}
-        />
-      ))
-    }
-  </MeetingSeminar>
-)
+const SeminarTimeline = () => {
+  const [year, setYear] = useState("all")
+  const [sort, setSort] = useState("dateAscending")
 
+  return (
+    <MeetingSeminar>
+      <Tool>
+        <Year>
+          <div style={{ width: "110px" }}>
+            <Select
+              options={YearOptions}
+              isSearchable={false}
+              defaultValue={YearOptions[0]}
+              styles={CustomStyles}
+              onChange={({ value, label }) => {
+                console.log(year, value)
+                setYear(value)
+              }}
+            />
+          </div>
+        </Year>
+        <Search>
+          <SearchInput />
+          &nbsp; | &nbsp;
+          <AiOutlineSearch />
+        </Search>
+          <div style={{ width: "140px" }}>
+            <Select
+              options={SortOptions}
+              isSearchable={false}
+              defaultValue={SortOptions[0]}
+              styles={CustomStyles}
+              onChange={({ value, label }) => {
+                console.log(sort, value)
+                setSort(value)
+              }}
+            />
+          </div>
+       </Tool>
+      {meetingSeminarList
+        .filter(seminar => (year === "all" ? true : seminar.year === year))
+        .sort(seminar => {
+          switch(sort){
+            case "dateAscending":
+              meetingSeminarList.sort((a,b) => b.datepriority - a.datepriority)
+              seminar.sort === sort;
+              break;
+            case "dateDescending":
+              meetingSeminarList.sort((a,b) => a.datepriority - b.datepriority)
+              seminar.sort === sort;
+              break;
+            case "alphabetical":
+              meetingSeminarList.sort(function(a,b) {
+                return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
+              })
+              seminar.sort === sort;
+              break;
+            default:
+              null;
+          }
+        })
+        .map(seminar => (
+          <MeetingSeminarCard
+            cardTitle={seminar.cardTitle}
+            date={seminar.date}
+            author={seminar.author}
+            githubId={seminar.githubId}
+            cardDetailedText={seminar.cardDetailedText}
+          />
+        ))}
+    </MeetingSeminar>
+  )
+}
 
 const YearOptions = [
-  { value: 'every history', label: '전체 년도' },
-  { value: '2021', label: '2021' },
-  { value: '2020', label: '2020' }
+  { value: "all", label: "전체 년도" },
+  { value: 2021, label: "2021" },
+  { value: 2020, label: "2020" },
 ]
-
-const DropdownYear = () => (
-  <div style={{width:'110px'}}>
-    <Select 
-      options={YearOptions}
-      isSearchable={false}
-      defaultValue={YearOptions[0]}
-      styles={CustomStyles}
-    />
-  </div>
-)
 
 const SortOptions = [
-  { value: 'dateAscending', label: '날짜 오름차순' },
-  { value: 'dateDescending', label: '날짜 내림차순' },
-  { value: 'alphabetical', label: 'ABC순' }
+  { value: "dateAscending", label: "날짜 오름차순" },
+  { value: "dateDescending", label: "날짜 내림차순" },
+  { value: "alphabetical", label: "ABC순" },
 ]
-
-const DropdownSort = () => (
-  <div style={{width:'140px'}}>
-  <Select 
-    options={SortOptions}
-    isSearchable={false}
-    defaultValue={SortOptions[0]}
-    styles={CustomStyles}
-  />
-  </div>
-)
 
 const CustomStyles = {
   control: (provided, state) => ({
     ...provided,
-    background: '#fff',
+    background: "#fff",
     border: "1.5px solid lightgrey",
-    borderRadius: '5px',
+    borderRadius: "5px",
     minHeight: 33.67,
     height: 33.67,
-    boxShadow: 'none'
+    boxShadow: "none",
   }),
 
   valueContainer: (provided, state) => ({
     ...provided,
-    height: '30px',
+    height: "30px",
   }),
 
   indicatorSeparator: state => ({
-    display: 'none'
+    display: "none",
   }),
   indicatorsContainer: (provided, state) => ({
     ...provided,
-    height: '30px',
-    padding: '0'
+    height: "30px",
+    padding: "0",
   }),
   menu: (provided, state) => ({
     ...provided,
     border: "1.5px solid lightgrey",
-    borderRadius: '5px',
-    boxShadow: 'none'
-  })
-};
-
-
+    borderRadius: "5px",
+    boxShadow: "none",
+  }),
+}
 
 const Tool = styled.div`
   display: flex;
@@ -148,10 +158,10 @@ const Tool = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  font-size: 0.9rem;    
+  font-size: 0.9rem;
 `
 const Year = styled.div`
- margin: 0 1rem 0 0;
+  margin: 0 1rem 0 0;
 `
 
 const Search = styled.div`
@@ -168,8 +178,8 @@ const Search = styled.div`
 
 const SearchInput = styled.input`
   flex: 1;
+  height: 20.667px;
   border: none;
-  height: 20.667px
 `
 
 const MeetingSeminar = styled.div`
