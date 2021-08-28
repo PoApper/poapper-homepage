@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import styled, { css } from "styled-components"
 import { HiMenuAlt4 } from "react-icons/hi"
 
-import IconImg from "../images/icon.png"
+import IconImg from "../images/icon.svg"
 
 import { InternalLink } from "./links"
 
