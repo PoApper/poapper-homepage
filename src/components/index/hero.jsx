@@ -2,8 +2,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
+import { ExternalLinkButton } from "../links"
+
 import Bubbles from "./bubbles"
-import { ExternalLinkButton } from "./links"
 
 const Hero = () => {
   const {

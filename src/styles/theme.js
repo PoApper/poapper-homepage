@@ -19,6 +19,7 @@ const theme = {
   breakpoint: {
     m: "70rem",
     s: "40rem",
+    gitLog: "50rem",
   },
   contentWidth: "60rem",
 }

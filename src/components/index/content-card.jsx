@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { ExternalLinkButton } from "./links"
+import { ExternalLinkButton } from "../links"
 
 const ContentCard = ({ name, category, img, description, links }) => (
   <ContentCardContainer>
@@ -37,9 +37,11 @@ const ContentCardContainer = styled.div`
 
 const LogoImage = styled.img`
   flex: 0 0 50px;
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid lightgrey;
   border-radius: 30%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 `
 
 const Header = styled.div`
@@ -74,6 +76,7 @@ const DescriptionDiv = styled.div`
 
 const Description = styled.p`
   margin: 0 0 1rem 0;
+  font-size: 1.2rem;
 `
 
 const Links = styled.div`
