@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
-import PersonCard from "../components/person-card"
+import PersonCard from "../components/people/person-card"
 
 // Priority is sorted in ascending order
 const PeoplePage = () => {
