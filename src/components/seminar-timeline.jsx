@@ -79,17 +79,14 @@ const SeminarTimeline = () => {
           switch(sort){
             case "dateAscending":
               meetingSeminarList.sort((a,b) => b.datepriority - a.datepriority)
-              seminar.sort === sort;
               break;
             case "dateDescending":
               meetingSeminarList.sort((a,b) => a.datepriority - b.datepriority)
-              seminar.sort === sort;
               break;
             case "alphabetical":
               meetingSeminarList.sort(function(a,b) {
                 return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
               })
-              seminar.sort === sort;
               break;
             default:
               null;
