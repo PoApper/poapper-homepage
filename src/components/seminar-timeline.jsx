@@ -1,11 +1,10 @@
-import React,  { Component } from "react"
+import React from "react"
 import styled from "styled-components"
 import { FiDownload } from "react-icons/fi"
 import { AiOutlineSearch } from "react-icons/ai"
 import Select from 'react-select'
 
 import { meetingSeminarList } from "./seminar-list"
-import { options } from "preact"
 
 const MeetingSeminarCard = ({
   cardTitle,
@@ -43,9 +42,24 @@ const SeminarTimeline = () => (
         &nbsp; | &nbsp;
         <AiOutlineSearch />
       </Search>
-        <SortForm />
+        <DropdownSort />
     </Tool>
     {meetingSeminarList
+      /*날짜 오름차순
+      .sort(function(a,b) {
+        return a.datepriority < b.datepriority ? -1 : a.datepriority > b.datepriority ? 1: 0;
+      })
+      */
+      /*날짜 내림차순
+      .sort(function(a,b) {
+        return a.datepriority > b.datepriority ? -1 : a.datepriority < b.datepriority ? 1: 0;
+      })
+      */
+      /*ABC순
+      .sort(function(a,b) {
+        return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
+      })
+      */
       .map(seminar => (
         <MeetingSeminarCard
         cardTitle={seminar.cardTitle}
@@ -59,82 +73,6 @@ const SeminarTimeline = () => (
   </MeetingSeminar>
 )
 
-class SortForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOption: SortOptions
-    };
-
-    this.handleChange= this.handleChange.bind(this);
-    this.handleSubmit= this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({
-      selectedOption: event.target.selectedOption
-    })
-  }
-
-  handleSubmit(event) {
-    dataSortHandler();
-    event.preventDefault();
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-      <div style={{width:'140px'}}>
-      <Select
-        value={this.state.value} 
-        options={this.state.selectedOption}
-        isSearchable={false}
-        defaultValue={SortOptions[0]}
-        onChange={this.handleChange}
-        styles={CustomStyles}
-      />
-      </div>
-      </form>
-    )
-  }
-}
-
-
-
-class dataSortHandler extends React.Component {
-  sortDateAscending = () => {
-    meetingSeminarList.sort(function(a,b) {
-      return a.datepriority < b.datepriority ? -1 : a.datepriority > b.datepriority ? 1: 0;
-    });
-    return;
-  }
-  
-  sortDateDescending = () => {
-    meetingSeminarList.sort(function(a,b) {
-      return a.datepriority > b.datepriority ? -1 : a.datepriority < b.datepriority ? 1: 0;
-    });
-    return;
-  }
-  
-  sortAlphabetical = () => {
-    meetingSeminarList.sort(function(a,b) {
-      return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
-    });
-    return;
-  }
-  
-  render() {
-    if (this.state.selectedOption.value === 'dateAscending') {
-      this.sortDateAscending();
-    } else if (this.state.selectedOption.value === 'dateDescending') {
-      this.sortDateDescending();
-    } else if (this.state.selectedOption.value === 'alphabetical') {
-      this.sortAlphabetical();
-    } else {
-      return;
-    }
-  }
-}
 
 const YearOptions = [
   { value: 'every history', label: '전체 년도' },
@@ -158,6 +96,17 @@ const SortOptions = [
   { value: 'dateDescending', label: '날짜 내림차순' },
   { value: 'alphabetical', label: 'ABC순' }
 ]
+
+const DropdownSort = () => (
+  <div style={{width:'140px'}}>
+  <Select 
+    options={SortOptions}
+    isSearchable={false}
+    defaultValue={SortOptions[0]}
+    styles={CustomStyles}
+  />
+  </div>
+)
 
 const CustomStyles = {
   control: (provided, state) => ({
