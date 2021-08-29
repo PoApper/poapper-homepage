@@ -47,7 +47,7 @@ export const regularSeminarList = [
 export const meetingSeminarList = [
   {
     date: "2021 May 4",
-    datepriority: "20210504",
+    datePriority: "20210504",
     cardTitle: "Marp!",
     author: "최정원",
     githubId: "jjeongone",
@@ -56,7 +56,7 @@ export const meetingSeminarList = [
   },
   {
     date: "2021 April 20",
-    datepriority: "20210420",
+    datePriority: "20210420",
     cardTitle: "웰컴 세미나 - 3",
     author: "하석윤",
     githubId: "BlueHorn07",
@@ -65,7 +65,7 @@ export const meetingSeminarList = [
   },
   {
     date: "2021 March 30",
-    datepriority: "20210330",
+    datePriority: "20210330",
     cardTitle: "웰컴 세미나 - 2",
     author: "하석윤",
     githubId: "BlueHorn07",
@@ -74,7 +74,7 @@ export const meetingSeminarList = [
   },
   {
     date: "2021 March 16",
-    datepriority: "20210316",
+    datePriority: "20210316",
     cardTitle: "웰컴 세미나 - 1",
     author: "하석윤",
     githubId: "BlueHorn07",

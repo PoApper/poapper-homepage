@@ -9,7 +9,7 @@ import { meetingSeminarList } from "./seminar-list"
 const MeetingSeminarCard = ({
   cardTitle,
   date,
-  datepriority,
+  datePriority,
   author,
   githubId,
   cardDetailedText,
@@ -36,7 +36,7 @@ const MeetingSeminarCard = ({
 
 const SeminarTimeline = () => {
   const [year, setYear] = useState("all")
-  const [sort, setSort] = useState("dateAscending")
+  const [sort, setSort] = useState("latest")
 
   return (
     <MeetingSeminar>
@@ -60,36 +60,29 @@ const SeminarTimeline = () => {
           &nbsp; | &nbsp;
           <AiOutlineSearch />
         </Search>
-          <div style={{ width: "140px" }}>
-            <Select
-              options={SortOptions}
-              isSearchable={false}
-              defaultValue={SortOptions[0]}
-              styles={CustomStyles}
-              onChange={({ value, label }) => {
-                console.log(sort, value)
-                setSort(value)
-              }}
-            />
-          </div>
-       </Tool>
+        <div style={{ width: "140px" }}>
+          <Select
+            options={SortOptions}
+            isSearchable={false}
+            defaultValue={SortOptions[0]}
+            styles={CustomStyles}
+            onChange={({ value, label }) => {
+              console.log(sort, value)
+              setSort(value)
+            }}
+          />
+        </div>
+      </Tool>
       {meetingSeminarList
         .filter(seminar => (year === "all" ? true : seminar.year === year))
-        .sort(seminar => {
-          switch(sort){
-            case "dateAscending":
-              meetingSeminarList.sort((a,b) => b.datepriority - a.datepriority)
-              break;
-            case "dateDescending":
-              meetingSeminarList.sort((a,b) => a.datepriority - b.datepriority)
-              break;
+        .sort((a, b) => {
+          switch (sort) {
+            case "latest":
+              return b.datePriority - a.datePriority
+            case "oldest":
+              return a.datePriority - b.datePriority
             case "alphabetical":
-              meetingSeminarList.sort(function(a,b) {
-                return a.cardTitle < b.cardTitle ? -1 : a.cardTitle > b.cardTitle ? 1: 0;
-              })
-              break;
-            default:
-              null;
+              return a.cardTitle.localeCompare(b.cardTitle)
           }
         })
         .map(seminar => (
@@ -112,8 +105,8 @@ const YearOptions = [
 ]
 
 const SortOptions = [
-  { value: "dateAscending", label: "날짜 오름차순" },
-  { value: "dateDescending", label: "날짜 내림차순" },
+  { value: "latest", label: "최신순" },
+  { value: "oldest", label: "오래된순" },
   { value: "alphabetical", label: "ABC순" },
 ]
 
@@ -184,7 +177,7 @@ const MeetingSeminar = styled.div`
 `
 
 const SeminarCard = styled.div`
-  margin: 1.5rem 1rem 0rem 1rem;
+  margin: 1.5rem 1rem 0 1rem;
 `
 
 const Head = styled.div`
