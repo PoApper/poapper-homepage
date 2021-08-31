@@ -7,45 +7,18 @@ import { meetingSeminarList } from "./seminar-list"
 import { MeetingSeminarCard } from "./meeting-seminar-card"
 
 const SeminarTimeline = () => {
-  const [year, setYear] = useState("all")
-  const [sort, setSort] = useState("latest")
+
+  const [ stateYears, setStateYears ] = useState("all")
+  const [ stateSorts, setStateSorts ] = useState("latest")
 
   return (
     <MeetingSeminar>
-      <Tool>
-        <Year>
-          <div style={{ width: "110px" }}>
-            <Select
-              options={YearOptions}
-              isSearchable={false}
-              defaultValue={YearOptions[0]}
-              styles={CustomStyles}
-              onChange={({ value, label }) => {
-                console.log(year, value)
-                setYear(value)
-              }}
-            />
-          </div>
-        </Year>
-        <Search>
-          <SearchInput />
-          &nbsp; | &nbsp;
-          <AiOutlineSearch />
-        </Search>
-        <div style={{ width: "140px" }}>
-          <Select
-            options={SortOptions}
-            isSearchable={false}
-            defaultValue={SortOptions[0]}
-            styles={CustomStyles}
-            onChange={({ value, label }) => {
-              console.log(sort, value)
-              setSort(value)
-            }}
-          />
-        </div>
-      </Tool>
-      {meetingSeminarList
+      <TimelineBar
+        year={stateYears} sort={stateSorts}
+        onChange = { value => setStateYears({...stateYears, ...value})}
+        onChange = { value => setStateSorts({...stateSorts, ...value})}
+      />
+      {meetingSeminarList     
         .filter(seminar => (year === "all" ? true : seminar.year === year))
         .sort((a, b) => {
           switch (sort) {
@@ -67,6 +40,66 @@ const SeminarTimeline = () => {
           />
         ))}
     </MeetingSeminar>
+  )
+}
+
+const TimelineBar = (props) => {
+
+  const [year, setYear] = useState("all")
+  const [sort, setSort] = useState("latest")  
+
+  const onChangeYear = (event) => {
+    const {year,value} = event.target;
+    setYear({
+      [year] : value
+    });
+    props.onChangeYear(year)
+  }
+
+  const onChangeSort = (event) => {
+    const {sort,value} = event.target;
+    setSort({
+      [sort] : value
+    });
+    props.onChangeSort(sort)
+  }
+
+  return (
+      <Tool>
+          <Year>
+              <div style={{ width: "110px" }}>
+                  <Select
+                      options={YearOptions}
+                      isSearchable={false}
+                      defaultValue={YearOptions[0]}
+                      styles={CustomStyles}
+                      onChange={({ value, label }) => {
+                          console.log(year, value)
+                          setYear(value)
+                          onChangeYear(year)
+                      }}
+                  />
+              </div>
+          </Year>
+          <Search>
+              <SearchInput />
+              &nbsp; | &nbsp;
+              <AiOutlineSearch />
+          </Search>
+          <div style={{ width: "140px" }}>
+              <Select
+                  options={SortOptions}
+                  isSearchable={false}
+                  defaultValue={SortOptions[0]}
+                  styles={CustomStyles}
+                  onChange={({ value, label }) => {
+                      console.log(sort, value)
+                      setSort(value)
+                      onChangeSort(sort)
+                  }}
+              />
+          </div>
+    </Tool>
   )
 }
 
