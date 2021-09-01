@@ -21,10 +21,10 @@ const Overview = () => (
 )
 
 const numberStackData = [
-  { pre: "창립년도", n: 2015, post: "년" },
-  { pre: "동아리실", n: 211, post: "호" },
+  { pre: "창립년도", n: 2010, post: "년" },
+  { pre: "학생회관", n: 211, post: "호" },
   { pre: "회원수", n: 33, post: "명" },
-  { pre: "작년 커밋수", n: 102, post: "회" },
+  { pre: "올해 커밋수", n: 102, post: "회" },
 ]
 
 const NumberStackGrid = ({ data }) => (
