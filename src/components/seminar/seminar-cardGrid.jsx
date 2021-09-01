@@ -84,9 +84,4 @@ const Logo = styled.div`
   padding: 8px;
 `
 
-const SubTitle = styled.h4`
-  margin: 0;
-  color: grey;
-`
-
 export default SeminarCardGrid

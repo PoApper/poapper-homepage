@@ -3,8 +3,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 
-import SeminarCardGrid from "../components/seminar-cardGrid"
-import SeminarTimeline from "../components/seminar-timeline"
+import SeminarCardGrid from "../components/seminar/seminar-cardGrid"
+import SeminarTimeline from "../components/seminar/seminar-timeline"
 
 // Uses React functional components
 const SeminarPage = () => (
