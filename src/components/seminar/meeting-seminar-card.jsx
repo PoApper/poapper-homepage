@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { FiDownload } from "react-icons/fi"
 
-
 export const MeetingSeminarCard = ({
   cardTitle,
   date,
