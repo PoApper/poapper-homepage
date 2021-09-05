@@ -9,7 +9,7 @@ const RegularSeminarCard = props => (
     <Title>
       {props.seminar.name}
       {props.seminar.github_link ? (
-        <IconLink href={props.seminar.github_link}>
+        <IconLink href={props.seminar.github_link} target="_blank">
           <FaGithub size="1.3rem" />
         </IconLink>
       ) : null}

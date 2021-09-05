@@ -24,7 +24,7 @@ const Hero = () => {
       <Information>
         <Title>PoApper</Title>
         <Subtitle>POSTECH 개발자 네트워크</Subtitle>
-        <ExternalLinkButton href={siteMetadata.github}>
+        <ExternalLinkButton href={siteMetadata.github} target="_blank">
           Github
         </ExternalLinkButton>
       </Information>

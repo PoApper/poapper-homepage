@@ -149,7 +149,7 @@ const Bubbles = ({
         {...props}
       >
         {nodes.map(node => (
-          <a href={node.to} className="bubble">
+          <a href={node.to} target="_blank" className="bubble" rel="noreferrer">
             <BubbleClipPath
               r={node.radius}
               id={`bubble-clip-path-${node.index}`}

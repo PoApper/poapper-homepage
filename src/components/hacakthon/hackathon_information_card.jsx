@@ -25,7 +25,10 @@ const HackathonCardGrid = () => (
           아니시라구요?
         </HackathonCardBody>
         <div style={{ margin: "20px 0px 15px 0px", textAlign: "center" }}>
-          <StyledExternalLinkButton href="/">
+          <StyledExternalLinkButton
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd6hXlX5QnVsKacXmFgrW5FN51ouw9w3YY4zqpyJ8pOi58a9Q/viewform"
+            target="_blank"
+          >
             &gt;&gt; 포애퍼 지원하기 &lt;&lt;
           </StyledExternalLinkButton>
         </div>

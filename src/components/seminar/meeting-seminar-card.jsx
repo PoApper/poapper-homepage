@@ -21,7 +21,9 @@ export const MeetingSeminarCard = ({
       <Date>{date}</Date>|
       <Presenter>
         {author}{" "}
-        <Link href={`https://github.com/${githubId}`}>(@{githubId})</Link>
+        <Link href={`https://github.com/${githubId}`} target="_blank">
+          (@{githubId})
+        </Link>
       </Presenter>
     </Info>
 

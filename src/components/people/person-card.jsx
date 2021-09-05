@@ -101,12 +101,12 @@ const PersonCard = ({
       <Text>{text}</Text>
       <Links>
         {website ? (
-          <Link href={website}>
+          <Link href={website} target="_blank">
             <FaHome size="1.75rem" />
           </Link>
         ) : null}
 
-        <Link href={`https://github.com/${githubUsername}`}>
+        <Link href={`https://github.com/${githubUsername}`} target="_blank">
           <FaGithub size="1.75rem" />
         </Link>
       </Links>
