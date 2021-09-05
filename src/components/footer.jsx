@@ -30,10 +30,10 @@ const Footer = () => {
           </ExternalLink>
         </div>
         <IconLinks>
-          <IconLink href={siteMetadata.github}>
+          <IconLink href={siteMetadata.github} target="_blank">
             <FaGithub size="2rem" />
           </IconLink>
-          <IconLink href={siteMetadata.facebook}>
+          <IconLink href={siteMetadata.facebook} target="_blank">
             <FaFacebook size="2rem" />
           </IconLink>
         </IconLinks>

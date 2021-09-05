@@ -8,7 +8,7 @@ const PoApperIncBanner = () => {
     <Container>
       <BannerWrapper>
         <div>
-          <a href="https://poapper.com">
+          <a href="https://poapper.com" target="_blank" rel="noreferrer">
             <Icon src={PoApperIncLogo} alt="icon" />
           </a>
         </div>

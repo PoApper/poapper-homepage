@@ -16,7 +16,7 @@ const ContentCard = ({ name, category, img, description, links }) => (
       <Description>{description}</Description>
       <Links>
         {links.map(link => (
-          <StyledExternalLinkButton href={link.to}>
+          <StyledExternalLinkButton href={link.to} target="_blank">
             {link.text}
           </StyledExternalLinkButton>
         ))}
