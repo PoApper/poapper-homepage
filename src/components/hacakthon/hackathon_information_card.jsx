@@ -26,7 +26,7 @@ const HackathonCardGrid = () => (
         </HackathonCardBody>
         <div style={{ margin: "20px 0px 15px 0px", textAlign: "center" }}>
           <StyledExternalLinkButton
-            href="https://docs.google.com/forms/d/e/1FAIpQLSd6hXlX5QnVsKacXmFgrW5FN51ouw9w3YY4zqpyJ8pOi58a9Q/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfVJa68iuOpdAOuU03LHeYMH8Nk8FgocS9uaDYNQ1dHxUA7Fw/viewform?usp=sf_link"
             target="_blank"
           >
             &gt;&gt; 포애퍼 지원하기 &lt;&lt;
