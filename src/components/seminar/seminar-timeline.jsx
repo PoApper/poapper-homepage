@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { getRegExp } from "korean-regexp"
 
 import { meetingSeminarList } from "./seminar-list"
 import { MeetingSeminarCard } from "./meeting-seminar-card"
@@ -8,19 +9,29 @@ import TimelineBar from "./seminar-timeline-bard"
 const SeminarTimeline = () => {
   const [yearFilter, setYearFilter] = useState("all")
   const [sortMethod, setSortMethod] = useState("latest")
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const queryRegExp = getRegExp(searchQuery, {
+    initialSearch: true,
+    ignoreSpace: true,
+    ignoreCase: true,
+  })
 
   return (
     <MeetingSeminar>
       <TimelineBar
         year={yearFilter}
         sort={sortMethod}
+        searchQuery={searchQuery}
         setYear={setYearFilter}
         setSort={setSortMethod}
+        setSearchQuery={setSearchQuery}
       />
       {meetingSeminarList
         .filter(seminar =>
           yearFilter === "all" ? true : seminar.year === yearFilter
         )
+        .filter(seminar => seminar.cardTitle.match(queryRegExp))
         .sort((a, b) => {
           switch (sortMethod) {
             case "latest":
