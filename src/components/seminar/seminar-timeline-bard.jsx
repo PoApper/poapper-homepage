@@ -31,7 +31,11 @@ const TimelineBar = props => {
         </div>
       </Year>
       <Search>
-        <SearchInput />
+        <SearchInput
+          placeholder={"세미나를 검색해보세요"}
+          value={props.searchQuery}
+          onChange={e => props.setSearchQuery(e.target.value)}
+        />
         &nbsp; | &nbsp;
         <AiOutlineSearch />
       </Search>

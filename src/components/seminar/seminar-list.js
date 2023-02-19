@@ -46,6 +46,24 @@ export const regularSeminarList = [
 
 export const meetingSeminarList = [
   {
+    date: "2021 December 13",
+    datePriority: "20211213",
+    cardTitle: "Gaussian Process Regression",
+    author: "하석윤",
+    githubId: "BlueHorn07",
+    cardDetailedText: "GPR and Anomaly Detection",
+    year: 2021,
+  },
+  {
+    date: "2021 November 29",
+    datePriority: "20211129",
+    cardTitle: "인턴 경험과 생활에 관해",
+    author: "제태호",
+    githubId: "stpcoder",
+    cardDetailedText: "미리디 인턴 경험을 바탕으로",
+    year: 2021,
+  },
+  {
     date: "2021 May 4",
     datePriority: "20210504",
     cardTitle: "Marp!",
