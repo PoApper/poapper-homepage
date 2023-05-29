@@ -5,7 +5,6 @@
 *docker-compose*
 node_modules
 
-.env*
+.env
 .github
 .husky
-
