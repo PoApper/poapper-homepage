@@ -1,10 +1,10 @@
-FROM node:16.14-alpine
+FROM node:16.20-alpine
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm ci --ignore-scripts --legacy-peer-deps
+RUN npm ci --ignore-scripts
 
 COPY . .
 
