@@ -9,7 +9,7 @@ const PeoplePage = () => {
   const [people, setPeople] = useState([])
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_URL}/people`, {})
+    fetch(`${process.env.GATSBY_API_URL}/member`, {})
       .then(res => res.json())
       .then(data => setPeople(data))
   }, [])
