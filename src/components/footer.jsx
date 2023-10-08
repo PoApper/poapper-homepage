@@ -38,7 +38,7 @@ const Footer = () => {
           </IconLink>
         </IconLinks>
       </Container>
-      <span>© 2021 PoApper</span>
+      <span>© {new Date().getFullYear()} PoApper</span>
     </FooterElement>
   )
 }
