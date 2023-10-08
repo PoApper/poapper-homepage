@@ -89,7 +89,7 @@ const PersonCard = ({
     <Container {...props}>
       <Image src={image} alt={name} />
       <Badges>
-        {badges.map(badge => (
+        {(badges ?? []).map(badge => (
           <BadgeWrapper>
             {badge_image(badge)}
             <HoverText>{badge_hover_text(badge)}</HoverText>
@@ -97,7 +97,7 @@ const PersonCard = ({
         ))}
       </Badges>
       <Name>{name}</Name>
-      <Tags>{tags.map(tag => (tag ? <Tag>#{tag}</Tag> : null))}</Tags>
+      <Tags>{(tags ?? []).map(tag => (tag ? <Tag>#{tag}</Tag> : null))}</Tags>
       <Text>{text}</Text>
       <Links>
         {website ? (
@@ -105,10 +105,11 @@ const PersonCard = ({
             <FaHome size="1.75rem" />
           </Link>
         ) : null}
-
-        <Link href={`https://github.com/${githubUsername}`} target="_blank">
-          <FaGithub size="1.75rem" />
-        </Link>
+        {githubUsername ? (
+          <Link href={`https://github.com/${githubUsername}`} target="_blank">
+            <FaGithub size="1.75rem" />
+          </Link>
+        ) : null}
       </Links>
     </Container>
   )

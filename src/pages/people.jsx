@@ -9,7 +9,7 @@ const PeoplePage = () => {
   const [people, setPeople] = useState([])
 
   useEffect(() => {
-    fetch(`${process.env.GATSBY_API_URL}/people`, {})
+    fetch(`${process.env.GATSBY_API_URL}/member`, {})
       .then(res => res.json())
       .then(data => setPeople(data))
   }, [])
@@ -23,13 +23,17 @@ const PeoplePage = () => {
           .sort((a, b) => a.priority - b.priority)
           .map(person => (
             <PersonCard
-              image={`https://avatars.githubusercontent.com/${[person.github]}`}
+              image={
+                person.github_id
+                  ? `https://avatars.githubusercontent.com/${person.github_id}`
+                  : "https://raw.githubusercontent.com/PoApper/poapper-asset/main/logo/logo.png"
+              }
               name={person.name}
-              tags={person.tags.split(",")}
+              tags={person.tags}
               text={person.text}
               website={person.website}
-              githubUsername={person.github}
-              badges={person.badge.split(",")}
+              githubUsername={person.github_id}
+              badges={person.badge}
             />
           ))}
       </Layout>
