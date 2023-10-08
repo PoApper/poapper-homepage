@@ -105,10 +105,11 @@ const PersonCard = ({
             <FaHome size="1.75rem" />
           </Link>
         ) : null}
-
-        <Link href={`https://github.com/${githubUsername}`} target="_blank">
-          <FaGithub size="1.75rem" />
-        </Link>
+        {githubUsername ? (
+          <Link href={`https://github.com/${githubUsername}`} target="_blank">
+            <FaGithub size="1.75rem" />
+          </Link>
+        ) : null}
       </Links>
     </Container>
   )
