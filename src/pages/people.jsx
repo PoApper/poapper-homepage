@@ -25,11 +25,11 @@ const PeoplePage = () => {
             <PersonCard
               image={`https://avatars.githubusercontent.com/${[person.github]}`}
               name={person.name}
-              tags={person.tags.split(",")}
+              tags={person.tags}
               text={person.text}
               website={person.website}
               githubUsername={person.github}
-              badges={person.badge.split(",")}
+              badges={person.badge}
             />
           ))}
       </Layout>
