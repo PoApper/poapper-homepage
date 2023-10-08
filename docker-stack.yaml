@@ -3,7 +3,7 @@ services:
   dev:
     image: 151345152001.dkr.ecr.ap-northeast-2.amazonaws.com/poapper-homepage:latest
     ports:
-      - 9001:9000
+      - 9001:80
     logging:
       driver: local
       options:
@@ -18,7 +18,7 @@ services:
   prod:
     image: 151345152001.dkr.ecr.ap-northeast-2.amazonaws.com/poapper-homepage:vX.X.X
     ports:
-      - 9000:9000
+      - 9000:80
     logging:
       driver: local
       options:
