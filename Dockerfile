@@ -1,4 +1,4 @@
-FROM node:16.20-alpine
+FROM node:16.20-alpine AS builder
 
 WORKDIR /usr/src/app
 
@@ -11,6 +11,9 @@ COPY .env.production .env
 
 RUN npm run build
 
-EXPOSE 9000
+# serving stage
+FROM nginx
 
-CMD ["npm", "run", "serve"]
+EXPOSE 80
+
+COPY --from=builder /usr/src/app/public /usr/share/nginx/html
