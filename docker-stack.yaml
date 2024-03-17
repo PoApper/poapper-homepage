@@ -1,22 +1,8 @@
 version: '3.3'
 services:
-  dev:
-    image: 151345152001.dkr.ecr.ap-northeast-2.amazonaws.com/poapper-homepage:latest
-    ports:
-      - 9001:80
-    logging:
-      driver: local
-      options:
-        max-size: 10m
-    deploy:
-      labels:
-        swarmpit.service.deployment.autoredeploy: 'true'
-      placement:
-        constraints:
-          - node.role != manager
-          - node.labels.application == poapper_web
   prod:
-    image: 151345152001.dkr.ecr.ap-northeast-2.amazonaws.com/poapper-homepage:vX.X.X
+    # image: 151345152001.dkr.ecr.ap-northeast-2.amazonaws.com/poapper-homepage:vX.X.X
+    image: 151345152001.dkr.ecr.ap-northeast-2.amazonaws.com/poapper-homepage:latest
     ports:
       - 9000:80
     logging:
@@ -29,4 +15,4 @@ services:
       placement:
         constraints:
           - node.role != manager
-          - node.labels.application == poapper_web
+          - node.labels.application == popo
